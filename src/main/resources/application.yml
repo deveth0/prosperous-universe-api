@@ -10,8 +10,3 @@ app:
     resources: data/data_resources.csv
     planetary_resources: data/dlinks_planetary_resources.csv
 
-
-spring:
-  jackson:
-    deserialization:
-      fail-on-unknown-properties: false

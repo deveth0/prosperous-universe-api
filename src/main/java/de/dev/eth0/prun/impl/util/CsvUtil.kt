@@ -3,6 +3,7 @@ package de.dev.eth0.prun.impl.util
 import com.fasterxml.jackson.databind.MappingIterator
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.csv.CsvSchema
+import org.slf4j.LoggerFactory
 import org.springframework.core.io.ClassPathResource
 import java.io.File
 
@@ -12,7 +13,7 @@ import java.io.File
 class CsvUtil {
 
   companion object {
-
+    val logger = LoggerFactory.getLogger(CsvUtil::class.java.simpleName)
     /**
      * Load the given file
      */
@@ -24,6 +25,7 @@ class CsvUtil {
         val readValues: MappingIterator<T> = mapper.reader(type).with(bootstrapSchema).readValues(file)
         readValues.readAll()
       } catch (e: Exception) {
+        logger.error("Could not parse $fileName", e)
         listOf()
       }
     }

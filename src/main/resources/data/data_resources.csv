@@ -1,214 +1,214 @@
 ticker,name,category,weight,volume,natural
-HOP,Flowery Hops,Agricultural Products,0.35,1,FALSE
-CAF,Caffeinated Beans,Agricultural Products,0.86,1,FALSE
-GRN,High-Carb Grains,Agricultural Products,0.9,1,FALSE
-MAI,High-Carb Maize,Agricultural Products,1.3,1,FALSE
-RCO,Raw Cotton Fiber,Agricultural Products,0.95,1,FALSE
-NUT,Triglyceride Nuts,Agricultural Products,0.9,1,FALSE
-VEG,Triglyceride Fruits,Agricultural Products,1.1,1,FALSE
-GRA,Wine-Quality Grapes,Agricultural Products,1.1,1,FALSE
-HER,Spicy Herbs,Agricultural Products,0.4,1,FALSE
-HCP,Hydrocarbon Plants,Agricultural Products,0.8,1,FALSE
-MTP,Meat Tissue Patties,Agricultural Products,0.7,1,FALSE
-ALG,Protein-Rich Algae,Agricultural Products,0.7,1,FALSE
-BEA,Protein-Rich Beans,Agricultural Products,0.8,1,FALSE
-PPA,Protein Paste,Agricultural Products,2,1,FALSE
-RSI,Raw Silk Strains,Agricultural Products,1.1,1,FALSE
-BTI,Budget Titanium Replacement,Alloys,3.22,1,FALSE
-AST,Alpha-Stabilized Titanium,Alloys,4.98,1,FALSE
-BRO,Bronze,Alloys,8.73,1,FALSE
-RGO,Red Gold,Alloys,19.32,1,FALSE
-BGO,Blue Gold,Alloys,19.32,1,FALSE
-FET,Ferro-Titanium,Alloys,6.85,1,FALSE
-DW,Drinking Water,Basic Consumables,0.1,0.1,FALSE
-HSS,Smart Space Suit,Basic Consumables,0.05,0.05,FALSE
-FIM,Flavoured Insta-Meal,Basic Consumables,0.55,0.5,FALSE
-PDA,Personal Data Assistant,Basic Consumables,0.002,0.002,FALSE
-OVE,Basic Overalls,Basic Consumables,0.02,0.025,FALSE
-RAT,Basic Rations,Basic Consumables,0.21,0.1,FALSE
-LC,AI-Assisted Lab Coat,Basic Consumables,0.05,0.05,FALSE
-MEA,Quality Meat Meal,Basic Consumables,0.6,0.5,FALSE
-WS,Scientific Work Station,Basic Consumables,0.05,0.5,FALSE
-EXO,Exoskeleton Work Suit,Basic Consumables,0.1,0.05,FALSE
-PT,Power Tools,Basic Consumables,0.25,0.2,FALSE
-HMS,HazMat Work Suit,Basic Consumables,0.05,0.05,FALSE
-MED,Basic Medical Kit,Basic Consumables,0.3,0.1,FALSE
-SCN,Multi-Purpose Scanner,Basic Consumables,0.001,0.001,FALSE
-BAC,Helpful Bacteria,Chemicals,0.15,0.15,FALSE
-BLE,Desaturation Agent,Chemicals,0.5,0.5,FALSE
-BL,Breathable Liquid,Chemicals,1.12,1,FALSE
-CST,Cryogenic Stabilizer,Chemicals,1.14,1,FALSE
-FLX,Cryogenic Stabilizer,Chemicals,0.25,0.1,FALSE
-IND,Indigo Colorant,Chemicals,0.21,0.2,FALSE
-LCR,Liquid Crystals,Chemicals,0.15,0.1,FALSE
-NR,Nano-Enhanced Resin,Chemicals,0.05,0.05,FALSE
-NS,Nutrient Solution,Chemicals,0.6,0.5,FALSE
-DDT,DDT Plant Agent,Chemicals,0.11,0.1,FALSE
-TCL,TCL Acid,Chemicals,0.09,0.1,FALSE
-THF,ThermoFluid,Chemicals,0.6,0.35,FALSE
-EPO,Epoxy Resin,Construction Materials,0.04,0.02,FALSE
-INF,InsuFoam,Construction Materials,0.06,0.1,FALSE
-MTC,MegaTube Coating,Construction Materials,0.032,0.01,FALSE
-MCG,Mineral Construction Granulate,Construction Materials,0.24,0.1,FALSE
-NCS,Nano-Carbon Sheeting,Construction Materials,0.028,0.01,FALSE
-NFI,Nanon Fiber,Construction Materials,0.032,0.01,FALSE
-NG,Nano-Coated Glass,Construction Materials,0.022,0.01,FALSE
-RG,Reinforced Glass,Construction Materials,0.032,0.01,FALSE
-SEA,Poly-Sulfite Sealant,Construction Materials,0.15,0.07,FALSE
-GL,Glass,Construction Materials,0.016,0.01,FALSE
-AEF,Aerostat Foundation,Constructions Parts,8,10,FALSE
-AIR,Air Scrubber,Constructions Parts,1.7,3,FALSE
-FC,Flow Control Device,Constructions Parts,0.5,0.25,FALSE
-FLP,Fluid Piping,Constructions Parts,0.3,2,FALSE
-GC,Cylindrical Gas Container,Constructions Parts,0.05,0.1,FALSE
-GV,Gas Vent,Constructions Parts,0.25,0.15,FALSE
-MGC,Magnetic Ground Cover,Constructions Parts,0.6,0.9,FALSE
-MHL,Metal-Halide Lighting System,Constructions Parts,0.1,0.05,FALSE
-PSH,Pressure Shielding,Constructions Parts,4.2,0.8,FALSE
-RSH,Radiation Shielding,Constructions Parts,3.7,0.8,FALSE
-TCS,Stabilized Technetium,Constructions Parts,3.4,1.2,FALSE
-TSH,Thermal Shielding,Constructions Parts,2.4,1.5,FALSE
-TRU,Truss,Constructions Parts,0.1,1.5,FALSE
-ABH,Advanced Bulkhead,Construction Prefabs,0.6,0.9,FALSE
-ADE,Advanced Deck Element,Construction Prefabs,0.4,1.5,FALSE
-ASE,Advanced Structural Elements,Construction Prefabs,0.5,0.6,FALSE
-ATA,Advanced Transparent Aperture,Construction Prefabs,0.3,0.4,FALSE
-BBH,Basic Bulkhead,Construction Prefabs,0.5,0.8,FALSE
-BDE,Basic Deck Element,Construction Prefabs,0.1,1.5,FALSE
-BSE,Basic Structural Elements,Construction Prefabs,0.3,0.5,FALSE
-BTA,Basic Transparent Aperture,Construction Prefabs,0.3,0.4,FALSE
-HSE,Hardened Structural Elements,Construction Prefabs,3.1,0.7,FALSE
-LBH,Lightweight Bulkhead,Construction Prefabs,0.2,0.6,FALSE
-LDE,Lightweight Deck Element,Construction Prefabs,0.1,1.2,FALSE
-LSE,Lightweight Structural Elements,Construction Prefabs,0.3,1.2,FALSE
-LTA,Lightweight Transparent Aperture,Construction Prefabs,0.3,0.5,FALSE
-RBH,Reinforced Bulkhead,Construction Prefabs,2.4,0.9,FALSE
-RDE,Reinforced Deck Element,Construction Prefabs,1.4,1.5,FALSE
-RSE,Reinforced Structural Elements,Construction Prefabs,1.9,0.7,FALSE
-RTA,Reinforced Transparent Aperture,Construction Prefabs,1.5,0.5,FALSE
-HD,Holographic Display,Electronic Devices,0.05,2,FALSE
-BMF,Basic Mainframe,Electronic Devices,0.08,1.2,FALSE
-PA,Parabolic Antenna,Electronic Devices,0.78,0.5,FALSE
-SAR,Sensor Array,Electronic Devices,1.7,2,FALSE
-HPC,Handheld Personal Console,Electronic Devices,0.003,0.003,FALSE
-DIS,Information Display,Electronic Devices,0.02,0.02,FALSE
-AWF,Active Water Filter,Electronic Devices,0.8,1.2,FALSE
-BWS,Basic Workstation,Electronic Devices,0.05,0.1,FALSE
-FAN,Active Cooling Device,Electronic Parts,0.1,0.1,FALSE
-EBS,Embedded System,Electronic Parts,0.005,0.005,FALSE
-RAM,Memory Bank,Electronic Parts,0.001,0.001,FALSE
-MPC,Micro-Processor,Electronic Parts,0.001,0.001,FALSE
-MB,Motherboard,Electronic Parts,0.075,0.075,FALSE
-ROM,non-volatile Memory,Electronic Parts,0.001,0.001,FALSE
-PCB,Printed Circuit Board,Electronic Parts,0.05,0.05,FALSE
-SEN,Sensor,Electronic Parts,0.001,0.001,FALSE
-SP,Solar Panel,Electronic Parts,0.15,0.1,FALSE
-SOC,System-on-a-Chip,Electronic Parts,0.05,0.05,FALSE
-TPU,Tensor Processing Unit,Electronic Parts,0.002,0.002,FALSE
-CD,Capacitative Display,Electronic Parts,0.004,0.002,FALSE
-BGC,Shielded Connectors,Electronic Pieces,0.01,0.002,FALSE
-CAP,Electric Field Capacitor,Electronic Pieces,0.001,0.001,FALSE
-BCO,Budget Connectors,Electronic Pieces,0.005,0.002,FALSE
-MFK,Medium Fastener Kit,Electronic Pieces,0.1,0.05,FALSE
-SFK,Small Fastener Kit,Electronic Pieces,0.04,0.02,FALSE
-LDI,Laser Diodes,Electronic Pieces,0.001,0.001,FALSE
-HCC,High-Capacity Connectors,Electronic Pieces,0.01,0.002,FALSE
-TRN,Advanced Transistor,Electronic Pieces,0.001,0.001,FALSE
-MWF,Medium Wafer,Electronic Pieces,0.008,0.008,FALSE
-SWF,Small Wafer,Electronic Pieces,0.003,0.003,FALSE
-CC,Climate Controller,Electronic Systems,0.5,1,FALSE
-CRU,Cryogenic Unit,Electronic Systems,2.2,2,FALSE
-FFC,FTL Field Controller,Electronic Systems,50,16,FALSE
-LIS,Life Support System,Electronic Systems,5.6,7,FALSE
-TAC,Targeting Computer,Electronic Systems,0.15,1,FALSE
-WR,Water Reclaimer,Electronic Systems,6.4,5,FALSE
-BE,Beryllium,Elements,1.84,1,FALSE
-CA,Calcium,Elements,1.54,1,FALSE
-C,Carbon,Elements,2.25,1,FALSE
-CL,Chlorine,Elements,3.2,1,FALSE
-ES,Einsteinium,Elements,8.84,1,FALSE
-I,Iodine,Elements,4.93,1,FALSE
-NA,Sodium,Elements,0.97,1,FALSE
-TA,Tantalum,Elements,16.65,1,FALSE
-TC,Technetium,Elements,11.8,1,FALSE
-W,Wolfram,Elements,7.519,1,FALSE
-ZR,Zirconium,Elements,6.53,1,FALSE
-FF,FTL Fuel,Fuels,1,0.1,FALSE
-SF,STL Fuel,Fuels,0.1,0.1,FALSE
-AMM,Ammonia,Gases,0.86,1,TRUE
-AR,Argon,Gases,1.784,1,TRUE
-F,Fluorine,Gases,1.696,1,TRUE
-HE,Helium,Gases,0.145,1,TRUE
-HE3,Helium-3 Isotope,Gases,0.145,1,TRUE
-H,Hydrogen,Gases,0.07,1,TRUE
-NE,Neon,Gases,0.9,1,TRUE
-N,Nitrogen,Gases,0.807,1,TRUE
-O,Oxygen,Gases,1.141,1,TRUE
-LES,Liquid Einsteinium,Liquids,8.84,1,TRUE
-BTS,Bacterial Tungsten Solution,Liquids,1.05,1,TRUE
-H2O,Water,Liquids,1,1,TRUE
-GIN,Herb-Infused Gin,Luxury Consumables,0.1,0.1,FALSE
-VG,VitaGel,Luxury Consumables,0.21,0.1,FALSE
-PWO,Padded work overall,Luxury Consumables,0.05,0.05,FALSE
-COF,Caffeinated Infusion,Luxury Consumables,0.1,0.1,FALSE
-WIN,White Zinfandel,Luxury Consumables,0.1,0.1,FALSE
-NST,NeuroStimulants,Luxury Consumables,0.05,0.05,FALSE
-KOM,Kombucha,Luxury Consumables,0.1,0.1,FALSE
-REP,Repair Kit,Luxury Consumables,0.006,0.002,FALSE
-ALE,Stellar Pale Ale,Luxury Consumables,0.1,0.1,FALSE
-SC,Mineral Supplements,Luxury Consumables,0.04,0.01,FALSE
-AL,Aluminum,Metals,2.7,1,FALSE
-CU,Copper,Metals,8.92,1,FALSE
-AU,Gold,Metals,19.32,1,FALSE
-FE,Iron,Metals,7.874,1,FALSE
-SI,Silicon,Metals,2.329,1,FALSE
-STL,Steel,Metals,7.85,1,FALSE
-TI,Titanium,Metals,4.5,1,FALSE
-BER,Beryl Crystals,Minerals,1.92,1,TRUE
-CLI,Caliche Rock,Minerals,2.42,1,TRUE
-GAL,Galerite Rock,Minerals,2.51,1,TRUE
-HAL,Halite Crystals,Minerals,2.17,1,TRUE
-LST,Limestone,Minerals,2.73,1,TRUE
-MG,Magnetite,Minerals,1.73,1,TRUE
-MAG,Magnesium,Minerals,5.15,1,TRUE
-S,Sulfur,Minerals,2.05,1,TRUE
-TAI,Tantalite Rock,Minerals,7.94,1,TRUE
-TCO,Technetium Oxide,Minerals,9.8,1,TRUE
-TS,Tectosilisite,Minerals,2.4,1,TRUE
-ZIR,Zircon Crystals,Minerals,4.85,1,TRUE
-ALO,Aluminium Ore,Ores,2.8,1,TRUE
-CUO,Copper Ore,Ores,4.2,1,TRUE
-AUO,Gold Ore,Ores,5,1,TRUE
-FEO,Iron Ore,Ores,5.2,1,TRUE
-SIO,Silicon Ore,Ores,2.64,1,TRUE
-TIO,Titanium Ore,Ores,6.5,1,TRUE
-DCL,Durable Casing L,Plastics,0.08,0.8,FALSE
-PSL,Polymer Sheet Type L,Plastics,0.08,0.8,FALSE
-DCM,Durable Casing M,Plastics,0.004,0.4,FALSE
-PSM,Polymer Sheet Type M,Plastics,0.04,0.4,FALSE
-PE,Poly-Ethylene,Plastics,0.01,0.01,FALSE
-PG,Polymer Granulate,Plastics,0.002,0.001,FALSE
-DCS,Durable Casing S,Plastics,0.01,0.1,FALSE
-PSS,Polymer Sheet Type S,Plastics,0.01,0.1,FALSE
-NV1,Navigation Module MK1,Ship Parts,4.2,2,FALSE
-NV2,Navigation Module MK2,Ship Parts,6.7,3,FALSE
-CNN,Convolutional Neural Network,Software,0.001,0.01,FALSE
-DA,Data Analyzer,Software,0.001,0.01,FALSE
-DV,Data Visualizer,Software,0.001,0.01,FALSE
-DD,Distributed Database,Software,0.001,0.01,FALSE
-FNN,Feedforward Neural Network,Software,0.001,0.01,FALSE
-LD,Local Database,Software,0.001,0.01,FALSE
-NF,Networking Framework,Software,0.001,0.01,FALSE
-OS,Operating System,Software,0.001,0.01,FALSE
-RA,Rating Algorithm,Software,0.001,0.01,FALSE
-RNN,Recurrent Neural Network,Software,0.001,0.01,FALSE
-SA,Search Algorithm,Software,0.001,0.01,FALSE
-SAL,Sorting Algorithm,Software,0.001,0.01,FALSE
-SNM,Spatial Navigation Map,Software,0.001,0.01,FALSE
-WAI,Weak Artificial Intelligence,Software,0.001,0.01,FALSE
-WM,Window Manager,Software,0.001,0.01,FALSE
-COT,Cotton Fabric,Textiles,0.77,1,FALSE
-KV,Kevlar Fabric,Textiles,1.65,1,FALSE
-NL,Nylon Fabric,Textiles,1.13,1,FALSE
-SIL,Silken Fabric,Textiles,1.21,1,FALSE
-TK,TechnoKevlar Fabric,Textiles,1.89,1,FALSE
+HOP,Flowery Hops,Agricultural Products,0.35,1,false
+CAF,Caffeinated Beans,Agricultural Products,0.86,1,false
+GRN,High-Carb Grains,Agricultural Products,0.9,1,false
+MAI,High-Carb Maize,Agricultural Products,1.3,1,false
+RCO,Raw Cotton Fiber,Agricultural Products,0.95,1,false
+NUT,Triglyceride Nuts,Agricultural Products,0.9,1,false
+VEG,Triglyceride Fruits,Agricultural Products,1.1,1,false
+GRA,Wine-Quality Grapes,Agricultural Products,1.1,1,false
+HER,Spicy Herbs,Agricultural Products,0.4,1,false
+HCP,Hydrocarbon Plants,Agricultural Products,0.8,1,false
+MTP,Meat Tissue Patties,Agricultural Products,0.7,1,false
+ALG,Protein-Rich Algae,Agricultural Products,0.7,1,false
+BEA,Protein-Rich Beans,Agricultural Products,0.8,1,false
+PPA,Protein Paste,Agricultural Products,2,1,false
+RSI,Raw Silk Strains,Agricultural Products,1.1,1,false
+BTI,Budget Titanium Replacement,Alloys,3.22,1,false
+AST,Alpha-Stabilized Titanium,Alloys,4.98,1,false
+BRO,Bronze,Alloys,8.73,1,false
+RGO,Red Gold,Alloys,19.32,1,false
+BGO,Blue Gold,Alloys,19.32,1,false
+FET,Ferro-Titanium,Alloys,6.85,1,false
+DW,Drinking Water,Basic Consumables,0.1,0.1,false
+HSS,Smart Space Suit,Basic Consumables,0.05,0.05,false
+FIM,Flavoured Insta-Meal,Basic Consumables,0.55,0.5,false
+PDA,Personal Data Assistant,Basic Consumables,0.002,0.002,false
+OVE,Basic Overalls,Basic Consumables,0.02,0.025,false
+RAT,Basic Rations,Basic Consumables,0.21,0.1,false
+LC,AI-Assisted Lab Coat,Basic Consumables,0.05,0.05,false
+MEA,Quality Meat Meal,Basic Consumables,0.6,0.5,false
+WS,Scientific Work Station,Basic Consumables,0.05,0.5,false
+EXO,Exoskeleton Work Suit,Basic Consumables,0.1,0.05,false
+PT,Power Tools,Basic Consumables,0.25,0.2,false
+HMS,HazMat Work Suit,Basic Consumables,0.05,0.05,false
+MED,Basic Medical Kit,Basic Consumables,0.3,0.1,false
+SCN,Multi-Purpose Scanner,Basic Consumables,0.001,0.001,false
+BAC,Helpful Bacteria,Chemicals,0.15,0.15,false
+BLE,Desaturation Agent,Chemicals,0.5,0.5,false
+BL,Breathable Liquid,Chemicals,1.12,1,false
+CST,Cryogenic Stabilizer,Chemicals,1.14,1,false
+FLX,Cryogenic Stabilizer,Chemicals,0.25,0.1,false
+IND,Indigo Colorant,Chemicals,0.21,0.2,false
+LCR,Liquid Crystals,Chemicals,0.15,0.1,false
+NR,Nano-Enhanced Resin,Chemicals,0.05,0.05,false
+NS,Nutrient Solution,Chemicals,0.6,0.5,false
+DDT,DDT Plant Agent,Chemicals,0.11,0.1,false
+TCL,TCL Acid,Chemicals,0.09,0.1,false
+THF,ThermoFluid,Chemicals,0.6,0.35,false
+EPO,Epoxy Resin,Construction Materials,0.04,0.02,false
+INF,InsuFoam,Construction Materials,0.06,0.1,false
+MTC,MegaTube Coating,Construction Materials,0.032,0.01,false
+MCG,Mineral Construction Granulate,Construction Materials,0.24,0.1,false
+NCS,Nano-Carbon Sheeting,Construction Materials,0.028,0.01,false
+NFI,Nanon Fiber,Construction Materials,0.032,0.01,false
+NG,Nano-Coated Glass,Construction Materials,0.022,0.01,false
+RG,Reinforced Glass,Construction Materials,0.032,0.01,false
+SEA,Poly-Sulfite Sealant,Construction Materials,0.15,0.07,false
+GL,Glass,Construction Materials,0.016,0.01,false
+AEF,Aerostat Foundation,Constructions Parts,8,10,false
+AIR,Air Scrubber,Constructions Parts,1.7,3,false
+FC,Flow Control Device,Constructions Parts,0.5,0.25,false
+FLP,Fluid Piping,Constructions Parts,0.3,2,false
+GC,Cylindrical Gas Container,Constructions Parts,0.05,0.1,false
+GV,Gas Vent,Constructions Parts,0.25,0.15,false
+MGC,Magnetic Ground Cover,Constructions Parts,0.6,0.9,false
+MHL,Metal-Halide Lighting System,Constructions Parts,0.1,0.05,false
+PSH,Pressure Shielding,Constructions Parts,4.2,0.8,false
+RSH,Radiation Shielding,Constructions Parts,3.7,0.8,false
+TCS,Stabilized Technetium,Constructions Parts,3.4,1.2,false
+TSH,Thermal Shielding,Constructions Parts,2.4,1.5,false
+TRU,Truss,Constructions Parts,0.1,1.5,false
+ABH,Advanced Bulkhead,Construction Prefabs,0.6,0.9,false
+ADE,Advanced Deck Element,Construction Prefabs,0.4,1.5,false
+ASE,Advanced Structural Elements,Construction Prefabs,0.5,0.6,false
+ATA,Advanced Transparent Aperture,Construction Prefabs,0.3,0.4,false
+BBH,Basic Bulkhead,Construction Prefabs,0.5,0.8,false
+BDE,Basic Deck Element,Construction Prefabs,0.1,1.5,false
+BSE,Basic Structural Elements,Construction Prefabs,0.3,0.5,false
+BTA,Basic Transparent Aperture,Construction Prefabs,0.3,0.4,false
+HSE,Hardened Structural Elements,Construction Prefabs,3.1,0.7,false
+LBH,Lightweight Bulkhead,Construction Prefabs,0.2,0.6,false
+LDE,Lightweight Deck Element,Construction Prefabs,0.1,1.2,false
+LSE,Lightweight Structural Elements,Construction Prefabs,0.3,1.2,false
+LTA,Lightweight Transparent Aperture,Construction Prefabs,0.3,0.5,false
+RBH,Reinforced Bulkhead,Construction Prefabs,2.4,0.9,false
+RDE,Reinforced Deck Element,Construction Prefabs,1.4,1.5,false
+RSE,Reinforced Structural Elements,Construction Prefabs,1.9,0.7,false
+RTA,Reinforced Transparent Aperture,Construction Prefabs,1.5,0.5,false
+HD,Holographic Display,Electronic Devices,0.05,2,false
+BMF,Basic Mainframe,Electronic Devices,0.08,1.2,false
+PA,Parabolic Antenna,Electronic Devices,0.78,0.5,false
+SAR,Sensor Array,Electronic Devices,1.7,2,false
+HPC,Handheld Personal Console,Electronic Devices,0.003,0.003,false
+DIS,Information Display,Electronic Devices,0.02,0.02,false
+AWF,Active Water Filter,Electronic Devices,0.8,1.2,false
+BWS,Basic Workstation,Electronic Devices,0.05,0.1,false
+FAN,Active Cooling Device,Electronic Parts,0.1,0.1,false
+EBS,Embedded System,Electronic Parts,0.005,0.005,false
+RAM,Memory Bank,Electronic Parts,0.001,0.001,false
+MPC,Micro-Processor,Electronic Parts,0.001,0.001,false
+MB,Motherboard,Electronic Parts,0.075,0.075,false
+ROM,non-volatile Memory,Electronic Parts,0.001,0.001,false
+PCB,Printed Circuit Board,Electronic Parts,0.05,0.05,false
+SEN,Sensor,Electronic Parts,0.001,0.001,false
+SP,Solar Panel,Electronic Parts,0.15,0.1,false
+SOC,System-on-a-Chip,Electronic Parts,0.05,0.05,false
+TPU,Tensor Processing Unit,Electronic Parts,0.002,0.002,false
+CD,Capacitative Display,Electronic Parts,0.004,0.002,false
+BGC,Shielded Connectors,Electronic Pieces,0.01,0.002,false
+CAP,Electric Field Capacitor,Electronic Pieces,0.001,0.001,false
+BCO,Budget Connectors,Electronic Pieces,0.005,0.002,false
+MFK,Medium Fastener Kit,Electronic Pieces,0.1,0.05,false
+SFK,Small Fastener Kit,Electronic Pieces,0.04,0.02,false
+LDI,Laser Diodes,Electronic Pieces,0.001,0.001,false
+HCC,High-Capacity Connectors,Electronic Pieces,0.01,0.002,false
+TRN,Advanced Transistor,Electronic Pieces,0.001,0.001,false
+MWF,Medium Wafer,Electronic Pieces,0.008,0.008,false
+SWF,Small Wafer,Electronic Pieces,0.003,0.003,false
+CC,Climate Controller,Electronic Systems,0.5,1,false
+CRU,Cryogenic Unit,Electronic Systems,2.2,2,false
+FFC,FTL Field Controller,Electronic Systems,50,16,false
+LIS,Life Support System,Electronic Systems,5.6,7,false
+TAC,Targeting Computer,Electronic Systems,0.15,1,false
+WR,Water Reclaimer,Electronic Systems,6.4,5,false
+BE,Beryllium,Elements,1.84,1,false
+CA,Calcium,Elements,1.54,1,false
+C,Carbon,Elements,2.25,1,false
+CL,Chlorine,Elements,3.2,1,false
+ES,Einsteinium,Elements,8.84,1,false
+I,Iodine,Elements,4.93,1,false
+NA,Sodium,Elements,0.97,1,false
+TA,Tantalum,Elements,16.65,1,false
+TC,Technetium,Elements,11.8,1,false
+W,Wolfram,Elements,7.519,1,false
+ZR,Zirconium,Elements,6.53,1,false
+FF,FTL Fuel,Fuels,1,0.1,false
+SF,STL Fuel,Fuels,0.1,0.1,false
+AMM,Ammonia,Gases,0.86,1,true
+AR,Argon,Gases,1.784,1,true
+F,Fluorine,Gases,1.696,1,true
+HE,Helium,Gases,0.145,1,true
+HE3,Helium-3 Isotope,Gases,0.145,1,true
+H,Hydrogen,Gases,0.07,1,true
+NE,Neon,Gases,0.9,1,true
+N,Nitrogen,Gases,0.807,1,true
+O,Oxygen,Gases,1.141,1,true
+LES,Liquid Einsteinium,Liquids,8.84,1,true
+BTS,Bacterial Tungsten Solution,Liquids,1.05,1,true
+H2O,Water,Liquids,1,1,true
+GIN,Herb-Infused Gin,Luxury Consumables,0.1,0.1,false
+VG,VitaGel,Luxury Consumables,0.21,0.1,false
+PWO,Padded work overall,Luxury Consumables,0.05,0.05,false
+COF,Caffeinated Infusion,Luxury Consumables,0.1,0.1,false
+WIN,White Zinfandel,Luxury Consumables,0.1,0.1,false
+NST,NeuroStimulants,Luxury Consumables,0.05,0.05,false
+KOM,Kombucha,Luxury Consumables,0.1,0.1,false
+REP,Repair Kit,Luxury Consumables,0.006,0.002,false
+ALE,Stellar Pale Ale,Luxury Consumables,0.1,0.1,false
+SC,Mineral Supplements,Luxury Consumables,0.04,0.01,false
+AL,Aluminum,Metals,2.7,1,false
+CU,Copper,Metals,8.92,1,false
+AU,Gold,Metals,19.32,1,false
+FE,Iron,Metals,7.874,1,false
+SI,Silicon,Metals,2.329,1,false
+STL,Steel,Metals,7.85,1,false
+TI,Titanium,Metals,4.5,1,false
+BER,Beryl Crystals,Minerals,1.92,1,true
+CLI,Caliche Rock,Minerals,2.42,1,true
+GAL,Galerite Rock,Minerals,2.51,1,true
+HAL,Halite Crystals,Minerals,2.17,1,true
+LST,Limestone,Minerals,2.73,1,true
+MG,Magnetite,Minerals,1.73,1,true
+MAG,Magnesium,Minerals,5.15,1,true
+S,Sulfur,Minerals,2.05,1,true
+TAI,Tantalite Rock,Minerals,7.94,1,true
+TCO,Technetium Oxide,Minerals,9.8,1,true
+TS,Tectosilisite,Minerals,2.4,1,true
+ZIR,Zircon Crystals,Minerals,4.85,1,true
+ALO,Aluminium Ore,Ores,2.8,1,true
+CUO,Copper Ore,Ores,4.2,1,true
+AUO,Gold Ore,Ores,5,1,true
+FEO,Iron Ore,Ores,5.2,1,true
+SIO,Silicon Ore,Ores,2.64,1,true
+TIO,Titanium Ore,Ores,6.5,1,true
+DCL,Durable Casing L,Plastics,0.08,0.8,false
+PSL,Polymer Sheet Type L,Plastics,0.08,0.8,false
+DCM,Durable Casing M,Plastics,0.004,0.4,false
+PSM,Polymer Sheet Type M,Plastics,0.04,0.4,false
+PE,Poly-Ethylene,Plastics,0.01,0.01,false
+PG,Polymer Granulate,Plastics,0.002,0.001,false
+DCS,Durable Casing S,Plastics,0.01,0.1,false
+PSS,Polymer Sheet Type S,Plastics,0.01,0.1,false
+NV1,Navigation Module MK1,Ship Parts,4.2,2,false
+NV2,Navigation Module MK2,Ship Parts,6.7,3,false
+CNN,Convolutional Neural Network,Software,0.001,0.01,false
+DA,Data Analyzer,Software,0.001,0.01,false
+DV,Data Visualizer,Software,0.001,0.01,false
+DD,Distributed Database,Software,0.001,0.01,false
+FNN,Feedforward Neural Network,Software,0.001,0.01,false
+LD,Local Database,Software,0.001,0.01,false
+NF,Networking Framework,Software,0.001,0.01,false
+OS,Operating System,Software,0.001,0.01,false
+RA,Rating Algorithm,Software,0.001,0.01,false
+RNN,Recurrent Neural Network,Software,0.001,0.01,false
+SA,Search Algorithm,Software,0.001,0.01,false
+SAL,Sorting Algorithm,Software,0.001,0.01,false
+SNM,Spatial Navigation Map,Software,0.001,0.01,false
+WAI,Weak Artificial Intelligence,Software,0.001,0.01,false
+WM,Window Manager,Software,0.001,0.01,false
+COT,Cotton Fabric,Textiles,0.77,1,false
+KV,Kevlar Fabric,Textiles,1.65,1,false
+NL,Nylon Fabric,Textiles,1.13,1,false
+SIL,Silken Fabric,Textiles,1.21,1,false
+TK,TechnoKevlar Fabric,Textiles,1.89,1,false
