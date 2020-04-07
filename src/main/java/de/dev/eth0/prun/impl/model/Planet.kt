@@ -7,24 +7,42 @@ package de.dev.eth0.prun.impl.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
+import io.swagger.annotations.ApiModel
+import io.swagger.annotations.ApiModelProperty
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@ApiModel(value = "Planet", description = "All details on a planet")
 data class Planet @JsonCreator constructor(
+    @ApiModelProperty(value = "Unique Id of the Planet", example = "WN-506a")
     @JsonProperty("id") val id: String,
+    @ApiModelProperty(value = "Name of the Planet or it's ID", example = "Proxion")
     @JsonProperty("name") val name: String,
+    @ApiModelProperty(value = "System of the Planet", example = "WN-506")
     @JsonProperty("system") val system: String,
+    @ApiModelProperty(value = "Fertility of the Planet", example = "0.22")
     @JsonProperty("fertility") val fertility: Double,
+    @ApiModelProperty(value = "Gravity of the Planet", example = "1.12")
     @JsonProperty("gravity") val gravity: Double,
+    @ApiModelProperty(value = "Number of Plots on the Planet", example = "400")
     @JsonProperty("plots") val plots: Int,
+    @ApiModelProperty(value = "Pressure of the Planet", example = "0.94")
     @JsonProperty("pressure") val pressure: Double,
+    @ApiModelProperty(value = "Temperature of the Planet", example = "8")
     @JsonProperty("temperature") val temperature: Double,
-    @JsonProperty("type") val type: String,
+    @ApiModelProperty(value = "Type of the Planet", example = "ROCKY")
+    @JsonProperty("type") val type: Type,
+    @ApiModelProperty(value = "Gravity Level of the Planet", example = "NORMAL")
     @JsonProperty("gravityLevel") val gravityLevel: Level,
+    @ApiModelProperty(value = "Pressure Level of the Planet", example = "NORMAL")
     @JsonProperty("pressureLevel") val pressureLevel: Level,
+    @ApiModelProperty(value = "Temperature Level of the Planet", example = "NORMAL")
     @JsonProperty("temperatureLevel") val temperatureLevel: Level,
+    @ApiModelProperty(value = "Tier of the Planet", example = "1")
     @JsonProperty("tier") val tier: Int,
+    @ApiModelProperty(value = "All resources available on the Planet")
     @JsonProperty("resources") val resources: Map<String, PlanetaryResource>
 ) {
-  enum class Level { HIGH, LOW, NORMAL }
+    enum class Level { HIGH, LOW, NORMAL }
+    enum class Type { ROCKY, GASEOUS }
 }
 

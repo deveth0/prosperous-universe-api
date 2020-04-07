@@ -30,7 +30,7 @@ class CSVPlanetsParser constructor(planetsFile: String, planetaryResourcesFile: 
   }
 
   private fun buildPlanetaryResource(csvPlanetaryResource: CSVPlanetaryResource): PlanetaryResource {
-    return PlanetaryResource(csvPlanetaryResource.resourceId, csvPlanetaryResource.form, csvPlanetaryResource.conc)
+    return PlanetaryResource(csvPlanetaryResource.resourceId, PlanetaryResource.Form.valueOf(csvPlanetaryResource.form.toUpperCase()), csvPlanetaryResource.conc)
   }
 
   private fun buildPlanet(csvPlanet: CSVPlanet, planetaryResources: List<CSVPlanetaryResource>): Planet {
@@ -44,7 +44,7 @@ class CSVPlanetsParser constructor(planetsFile: String, planetaryResourcesFile: 
         csvPlanet.plots,
         csvPlanet.pressure,
         csvPlanet.temperature,
-        csvPlanet.type,
+        Planet.Type.valueOf(csvPlanet.type.toUpperCase()),
         if (csvPlanet.highGravity) Planet.Level.HIGH else if (csvPlanet.lowGravity) Planet.Level.LOW else Planet.Level.NORMAL,
         if (csvPlanet.highPressure) Planet.Level.HIGH else if (csvPlanet.lowPressure) Planet.Level.LOW else Planet.Level.NORMAL,
         if (csvPlanet.highTemperature) Planet.Level.HIGH else if (csvPlanet.lowTemperature) Planet.Level.LOW else Planet.Level.NORMAL,
