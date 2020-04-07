@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*
 class PlanetController @Autowired constructor(val planetsService: PlanetsService) {
 
 
-  @ApiOperation("Retrieve information on the given planet")
+  @ApiOperation("Retrieve information on the given planet (either by Id or Name)")
   @GetMapping(path = ["/{planetId}"])
   fun planet(@PathVariable("planetId") planetId: String): Planet? {
     return planetsService.getPlanet(planetId)

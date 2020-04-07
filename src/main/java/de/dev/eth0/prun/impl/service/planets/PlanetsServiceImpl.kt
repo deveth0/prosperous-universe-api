@@ -30,7 +30,11 @@ open class PlanetsServiceImpl @Autowired constructor(filesProperties: FilesPrope
   @Cacheable("planets")
   override fun getPlanet(planetId: String): Planet? {
     logger.debug("getPlanet($planetId)")
-    return planets[planetId.toLowerCase()]
+    return if (planets.containsKey(planetId.toLowerCase()))
+      planets[planetId.toLowerCase()]
+    else planets.values.find {
+      it.name.equals(planetId, true)
+    }
   }
 
   @Cacheable("searchPlanets")

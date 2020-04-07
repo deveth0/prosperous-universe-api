@@ -12,7 +12,7 @@ import de.dev.eth0.prun.impl.model.Planet
 interface PlanetsService {
 
   /**
-   * Return the Planet with the given Id
+   * Return the Planet with the given Id or name
    */
   fun getPlanet(planetId: String): Planet?
 
