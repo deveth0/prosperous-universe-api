@@ -12,6 +12,8 @@ import io.swagger.annotations.ApiModelProperty
 
 @ApiModel(value = "Base", description = "Definition on a base")
 data class Base @JsonCreator constructor(
+    @ApiModelProperty(value = "Planet of this base", example = "WN-506a")
+    @JsonProperty("planet") val planet: String,
     @ApiModelProperty(value = "Buildings in this base")
     @JsonProperty("buildings") val buildings: List<String>,
     @ApiModelProperty(value = "Consumption-Settings for this base")

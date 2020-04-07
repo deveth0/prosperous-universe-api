@@ -10,11 +10,12 @@ import de.dev.eth0.prun.impl.model.Building
 import de.dev.eth0.prun.service.RecipeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.properties.EnableConfigurationProperties
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 
 @Service
 @EnableConfigurationProperties(FilesProperties::class)
-class BuildingsService @Autowired constructor(filesProperties: FilesProperties, objectMapper: ObjectMapper, private val recipeService: RecipeService) {
+open class BuildingsService @Autowired constructor(filesProperties: FilesProperties, objectMapper: ObjectMapper, private val recipeService: RecipeService) {
 
   val buildings: Map<String, Building>
 
@@ -23,7 +24,8 @@ class BuildingsService @Autowired constructor(filesProperties: FilesProperties, 
     buildings = parser.buildings
   }
 
-  fun getBuilding(ticker: String): Building? {
+  @Cacheable("building")
+  open fun getBuilding(ticker: String): Building? {
     val ret = buildings[ticker] ?: return null
     ret.recipes = recipeService.getRecipes(ret.id)
     return ret
