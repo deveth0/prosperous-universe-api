@@ -13,6 +13,8 @@ import io.swagger.annotations.ApiModelProperty
 @ApiModel(value = "Base", description = "Definition on a base")
 data class Base @JsonCreator constructor(
     @ApiModelProperty(value = "Buildings in this base")
-    @JsonProperty("buildings") val buildings: List<String>
+    @JsonProperty("buildings") val buildings: List<String>,
+    @ApiModelProperty(value = "Consumption-Settings for this base")
+    @JsonProperty("consumption") val consumption: Map<PopulationLevel, BaseConsumptionSetting>
 
 )
