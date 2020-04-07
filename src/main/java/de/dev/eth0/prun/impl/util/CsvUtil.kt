@@ -13,7 +13,8 @@ import java.io.File
 class CsvUtil {
 
   companion object {
-    val logger = LoggerFactory.getLogger(CsvUtil::class.java.simpleName)
+    private val logger = LoggerFactory.getLogger(CsvUtil::class.java.simpleName)
+
     /**
      * Load the given file
      */

@@ -20,7 +20,7 @@ class PlanetController @Autowired constructor(val planetsService: PlanetsService
 
   @ApiOperation("Search for all planets with the requested resources")
   @GetMapping(path = ["/search"])
-  fun search(@RequestParam("resource") resources: List<String>): List<Planet> {
-    return planetsService.searchPlanets(resources)
+  fun search(@RequestParam("resource") resources: List<String>): Map<String, Planet> {
+    return planetsService.searchPlanets(resources).map { it.id to it }.toMap()
   }
 }

@@ -1,11 +1,11 @@
-package de.dev.eth0.prun.impl.model
+package de.dev.eth0.prun.impl.service.planets.model
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class Planet @JsonCreator constructor(
+data class CSVPlanet @JsonCreator constructor(
     @JsonProperty("id") val id: String,
     @JsonProperty("name") val name: String,
     @JsonProperty("system") val system: String,
@@ -15,12 +15,12 @@ data class Planet @JsonCreator constructor(
     @JsonProperty("pressure") val pressure: Double,
     @JsonProperty("temperature") val temperature: Double,
     @JsonProperty("type") val type: String,
-    @JsonProperty("gravityLevel") val gravityLevel: Level,
-    @JsonProperty("pressureLevel") val pressureLevel: Level,
-    @JsonProperty("temperatureLevel") val temperatureLevel: Level,
-    @JsonProperty("tier") val tier: Int,
-    @JsonProperty("resources") val resources: Map<String, PlanetaryResource>
-) {
-  enum class Level { HIGH, LOW, NORMAL }
-}
+    @JsonProperty("low grav") val lowGravity: Boolean,
+    @JsonProperty("high grav") val highGravity: Boolean,
+    @JsonProperty("low pres") val lowPressure: Boolean,
+    @JsonProperty("high pres") val highPressure: Boolean,
+    @JsonProperty("low temp") val lowTemperature: Boolean,
+    @JsonProperty("high temp") val highTemperature: Boolean,
+    @JsonProperty("tier") val tier: Int
 
+)

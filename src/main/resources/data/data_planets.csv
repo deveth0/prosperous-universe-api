@@ -40,7 +40,7 @@ CR-311f,CR-311f,CR-311,,,,,,,Gaseous,true,true,false,false,false,false,false,fal
 CR-311g,CR-311g,CR-311,,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 CR-311h,CR-311h,CR-311,,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 CR-385a,CR-385a,CR-385,-1,0.71,500,10.67,,199,Rocky,false,false,false,false,false,true,false,true,4,Normal,High,High,true
-CR-385b,CR-385b,CR-385,0.12331593,0.63,478,1.17,,4,Rocky,false,false,false,false,false,false,false,false,1,Normal,Normal,Normal,true
+CR-385b,Etherwind,CR-385,0.12331593,0.63,478,1.17,,4,Rocky,false,false,false,false,false,false,false,false,1,Normal,Normal,Normal,true
 CR-385c,CR-385c,CR-385,-1,0.89,525,34.69,,-62,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
 CR-385d,CR-385d,CR-385,,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 CR-409a,CR-409a,CR-409,-1,1.06,444,31.86,8539,486,Rocky,false,false,false,false,false,true,false,true,4,Normal,High,High,false
@@ -76,7 +76,7 @@ CR-901c,CR-901c,CR-901,-1,1.2,473,1.2,9593,-75,Rocky,false,false,false,false,fal
 CR-901d,CR-901d,CR-901,-1,0.68,877,47,29496,-151,Gaseous,false,false,false,false,false,true,true,false,3,Normal,High,Low,false
 CR-901e,CR-901e,CR-901,-1,2.07,991,12.76,57938,-187,Gaseous,false,false,false,false,false,true,true,false,3,Normal,High,Low,false
 CR-911a,CR-911a,CR-911,-1,0.34,298,0.48,3254,361,Rocky,false,false,false,false,false,false,false,true,4,Normal,Normal,High,false
-CR-911b,CR-911b,CR-911,-1,0.34,276,0.13,2455,30,Rocky,false,false,false,false,true,false,false,false,2,Normal,Low,Normal,false
+CR-911b,Apothecary,CR-911,-1,0.34,276,0.13,2455,30,Rocky,false,false,false,false,true,false,false,false,2,Normal,Low,Normal,false
 CR-911c,CR-911c,CR-911,-1,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 CR-911d,CR-911d,CR-911,-1,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 CR-911e,CR-911e,CR-911,-1,0.76,850,46.92,22511,-185,Gaseous,false,false,false,false,false,true,true,false,3,Normal,High,Low,false
@@ -608,7 +608,7 @@ SW-893d,SW-893d,SW-893,-1,1.71,1014,26.66,,-189,Gaseous,false,false,false,false,
 SW-893e,SW-893e,SW-893,-1,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 SW-926a,SW-926a,SW-926,-1,0.27,283,0.1,,194,Rocky,false,false,false,false,true,false,false,true,4,Normal,Low,High,true
 SW-926b,SW-926b,SW-926,-1,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
-SW-926c,SW-926 c,SW-926,-1,0.99,397,0.94,6863,34,Rocky,false,false,false,false,false,false,false,false,1,Normal,Normal,Normal,false
+SW-926c,Berthier,SW-926,-1,0.99,397,0.94,6863,34,Rocky,false,false,false,false,false,false,false,false,1,Normal,Normal,Normal,false
 SW-926d,SW-926d,SW-926,-1,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 SW-926e,SW-926e,SW-926,-1,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 SW-926f,SW-926f,SW-926,-1,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
@@ -688,7 +688,7 @@ WN-428h,,WN-428,-1,0.9,951,42.79,,-227,Gaseous,false,false,false,false,false,tru
 WN-476a,,WN-476,-1,0.87,422,3.15,,98,Rocky,false,false,false,false,false,true,false,true,4,Normal,High,High,true
 WN-476b,,WN-476,-1,0.83,461,6.51,,2,Rocky,false,false,false,false,false,true,false,false,3,Normal,High,Normal,true
 WN-476c,,WN-476,-1,0.55,414,3.78,,42,Rocky,false,false,false,false,false,true,false,false,3,Normal,High,Normal,true
-WN-476d,,WN-476,-1,0.73,511,0.03,,-144,Rocky,false,false,false,false,true,false,true,false,3,Normal,Low,Low,true
+WN-476d,Ice Station Alpha,WN-476,-1,0.73,511,0.03,,-144,Rocky,false,false,false,false,true,false,true,false,3,Normal,Low,Low,true
 WN-506a,Proxion,WN-506,0.22000003,1.12,400,0.94,,8,Rocky,false,false,false,false,false,false,false,false,1,Normal,Normal,Normal,true
 WN-506b,,WN-506,-1,0.57,472,2.12,,-150,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
 WN-506c,,WN-506,,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
