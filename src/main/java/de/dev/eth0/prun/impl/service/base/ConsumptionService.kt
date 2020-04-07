@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service
 @Service
 class ConsumptionService @Autowired constructor(filesProperties: FilesProperties, objectMapper: ObjectMapper) {
 
-  val consumptions: Map<PopulationLevel, List<PopulationConsumption>>
+  private val consumptions: Map<PopulationLevel, List<PopulationConsumption>>
 
   init {
     val parser = ConsumptionParser(filesProperties.consumption, objectMapper)

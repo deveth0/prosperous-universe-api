@@ -4,6 +4,7 @@
 
 package de.dev.eth0.prun.impl.service.base
 
+import de.dev.eth0.prun.impl.model.Building
 import de.dev.eth0.prun.impl.service.base.model.*
 import de.dev.eth0.prun.service.BaseService
 import org.springframework.beans.factory.annotation.Autowired

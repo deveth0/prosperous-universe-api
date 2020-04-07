@@ -6,7 +6,7 @@ package de.dev.eth0.prun.impl.service.base
 
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
-import de.dev.eth0.prun.impl.service.base.model.Building
+import de.dev.eth0.prun.impl.model.Building
 import org.springframework.core.io.ClassPathResource
 
 /**

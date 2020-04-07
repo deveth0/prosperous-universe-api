@@ -11,6 +11,9 @@ app:
     planets: data/data_planets.csv
     resources: data/data_resources.csv
     planetary_resources: data/dlinks_planetary_resources.csv
+    recipes: data/data_recipes.csv
+    recipesInput: data/data_recipes_inputs.csv
+    recipesOutput: data/data_recipes_outputs.csv
     buildings: data/buildings.json
     consumption: data/consumption.json
 

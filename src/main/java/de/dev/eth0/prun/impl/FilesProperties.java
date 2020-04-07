@@ -25,6 +25,12 @@ public class FilesProperties {
   private String buildings;
   @NotBlank
   private String consumption;
+  @NotBlank
+  private String recipes;
+  @NotBlank
+  private String recipesInput;
+  @NotBlank
+  private String recipesOutput;
 
   public String getPlanets() {
     return planets;
@@ -64,5 +70,29 @@ public class FilesProperties {
 
   public void setConsumption(String consumption) {
     this.consumption = consumption;
+  }
+
+  public String getRecipes() {
+    return recipes;
+  }
+
+  public void setRecipes(String recipes) {
+    this.recipes = recipes;
+  }
+
+  public String getRecipesInput() {
+    return recipesInput;
+  }
+
+  public void setRecipesInput(String recipesInput) {
+    this.recipesInput = recipesInput;
+  }
+
+  public String getRecipesOutput() {
+    return recipesOutput;
+  }
+
+  public void setRecipesOutput(String recipesOutput) {
+    this.recipesOutput = recipesOutput;
   }
 }

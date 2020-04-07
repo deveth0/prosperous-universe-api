@@ -6,14 +6,15 @@ package de.dev.eth0.prun.impl.service.base
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import de.dev.eth0.prun.impl.FilesProperties
-import de.dev.eth0.prun.impl.service.base.model.Building
+import de.dev.eth0.prun.impl.model.Building
+import de.dev.eth0.prun.service.RecipeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.stereotype.Service
 
 @Service
 @EnableConfigurationProperties(FilesProperties::class)
-class BuildingsService @Autowired constructor(filesProperties: FilesProperties, objectMapper: ObjectMapper) {
+class BuildingsService @Autowired constructor(filesProperties: FilesProperties, objectMapper: ObjectMapper, private val recipeService: RecipeService) {
 
   val buildings: Map<String, Building>
 
@@ -23,7 +24,9 @@ class BuildingsService @Autowired constructor(filesProperties: FilesProperties, 
   }
 
   fun getBuilding(ticker: String): Building? {
-    return buildings[ticker]
+    val ret = buildings[ticker] ?: return null
+    ret.recipes = recipeService.getRecipes(ret.id)
+    return ret
   }
 
 }

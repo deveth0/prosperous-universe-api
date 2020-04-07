@@ -2,7 +2,7 @@
  * Copyright (c) 2020.  dev-eth0.de All rights reserved.
  */
 
-package de.dev.eth0.prun.impl.service.base.model
+package de.dev.eth0.prun.impl.model
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
@@ -28,8 +28,9 @@ data class Building @JsonCreator constructor(
     @ApiModelProperty(value = "Number of Engineer Workers", example = "20")
     @JsonProperty("engineers", required = false) val engineers: Int?,
     @ApiModelProperty(value = "Number of Scientist Workers", example = "50")
-    @JsonProperty("scientists", required = false) val scientists: Int?
-) {
+    @JsonProperty("scientists", required = false) val scientists: Int?,
+    @ApiModelProperty(value = "Recipes for the building")
+    @JsonProperty("recipes", required = false) var recipes: List<Recipe> = listOf()) {
   enum class Expertise {
     FOOD_INDUSTRIES, RESOURCE_EXTRACTION, CHEMISTRY, AGRICULTURE, MANUFACTURING, ELECTRONICS, METALLURGY, FUEL_REFINING, CONSTRUCTION
   }
