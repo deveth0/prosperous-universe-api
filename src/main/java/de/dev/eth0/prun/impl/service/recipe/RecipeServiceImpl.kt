@@ -21,6 +21,11 @@ open class RecipeServiceImpl @Autowired constructor(filesProperties: FilesProper
     recipes = parser.recipesByBuilding
   }
 
+  @Cacheable("recipe")
+  override fun getRecipe(recipeId: String): Recipe? {
+    return getRecipes().find { it.id == recipeId }
+  }
+
   @Cacheable("recipes")
   override fun getRecipes(): List<Recipe> {
     return recipes.values.flatten().toList()

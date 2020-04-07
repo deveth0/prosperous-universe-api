@@ -7,12 +7,16 @@ package de.dev.eth0.prun.impl.service.base
 import de.dev.eth0.prun.impl.model.Building
 import de.dev.eth0.prun.impl.service.base.model.*
 import de.dev.eth0.prun.service.BaseService
+import de.dev.eth0.prun.service.RecipeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import kotlin.math.abs
 
 @Service
-class BaseServiceImpl @Autowired constructor(private val buildingsService: BuildingsService, private val consumptionService: ConsumptionService) : BaseService {
+class BaseServiceImpl @Autowired constructor(
+    private val buildingsService: BuildingsService,
+    private val recipeService: RecipeService,
+    private val consumptionService: ConsumptionService) : BaseService {
 
   override fun calculate(base: Base): BaseCalculation {
     val buildings = base.buildings.mapNotNull { buildingsService.getBuilding(it) }
@@ -22,7 +26,20 @@ class BaseServiceImpl @Autowired constructor(private val buildingsService: Build
     val population = getPopulation(buildings, base.consumption);
 
     val consumables = consumptionService.calculateConsumption(population, base.consumption)
-    return BaseCalculation(area, population, consumables)
+
+    val materials = getMaterials(base, population)
+    return BaseCalculation(area, population, consumables, materials)
+  }
+
+  private fun getMaterials(base: Base, population: Map<PopulationLevel, Population>): Map<String, Double> {
+    val recipes = base.recipes.mapNotNull { r -> recipeService.getRecipe(r.key)?.let { Pair(it, r.value) } }.toMap()
+
+    val materials = mutableListOf<Pair<String, Double>>()
+    for (recipe in recipes) {
+      recipe.key.inputs.forEach { materials.add(Pair(it.key, -1 * it.value * 1.0)) }
+      recipe.key.outputs.forEach { materials.add(Pair(it.key, it.value * 1.0)) }
+    }
+    return materials.groupBy { it.first }.mapValues { it.value.sumByDouble { pair -> pair.second } }
   }
 
   private fun getPopulation(buildings: List<Building>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Map<PopulationLevel, Population> {

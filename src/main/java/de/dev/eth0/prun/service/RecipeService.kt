@@ -12,6 +12,11 @@ import de.dev.eth0.prun.impl.model.Recipe
 interface RecipeService {
 
   /**
+   * Get the requested recipe
+   */
+  fun getRecipe(recipeId: String): Recipe?
+
+  /**
    * Get all available recipes
    */
   fun getRecipes(): List<Recipe>

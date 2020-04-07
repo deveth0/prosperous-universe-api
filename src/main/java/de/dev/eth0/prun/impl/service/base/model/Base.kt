@@ -17,6 +17,8 @@ data class Base @JsonCreator constructor(
     @ApiModelProperty(value = "Buildings in this base")
     @JsonProperty("buildings") val buildings: List<String>,
     @ApiModelProperty(value = "Consumption-Settings for this base")
-    @JsonProperty("consumption") val consumption: Map<PopulationLevel, BaseConsumptionSetting>
+    @JsonProperty("consumption") val consumption: Map<PopulationLevel, BaseConsumptionSetting>,
+    @ApiModelProperty(value = "Recipes for this base")
+    @JsonProperty("recipes") val recipes: Map<String, Int>
 
 )
