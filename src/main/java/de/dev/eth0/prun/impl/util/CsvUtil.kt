@@ -27,7 +27,7 @@ class CsvUtil {
         val bootstrapSchema = CsvSchema.emptySchema().withHeader()
         val mapper = CsvMapper()
         val file: File = ClassPathResource(fileName).file
-        val readValues: MappingIterator<T> = mapper.reader(type).with(bootstrapSchema).readValues(file)
+        val readValues: MappingIterator<T> = mapper.readerFor(type).with(bootstrapSchema).readValues(file)
         readValues.readAll()
       } catch (e: Exception) {
         logger.error("Could not parse $fileName", e)

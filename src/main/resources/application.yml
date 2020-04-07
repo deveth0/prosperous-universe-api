@@ -1,7 +1,7 @@
 logging:
   level:
     ROOT: INFO
-    de.dev.eth0: INFO
+    de.dev.eth0: DEBUG
 
 spring:
   jackson:

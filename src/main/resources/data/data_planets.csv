@@ -1,4 +1,4 @@
-id,name,system,fertility,gravity,plots,pressure,radius,temperature,type,no resources,incomplete,low grav,high grav,low pres,high pres,low temp,high temp,tier,Grav,Pres,Temp,
+id,name,system,fertility,gravity,plots,pressure,radius,temperature,type,noresources,incomplete,lowgrav,highgrav,lowpres,highpres,lowtemp,hightemp,tier,Grav,Pres,Temp,
 BE-356a,BE-356a,BE-356,-1,0.63,421,5.77,7710,171,Rocky,false,false,false,false,false,true,false,true,4,Normal,High,High,false
 BE-356b,BE-356b,BE-356,-1,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 BE-356c,BE-356c,BE-356,-1,1.06,461,36.94,9139,-132,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,false
@@ -191,7 +191,7 @@ FO-163d,FO-163d,FO-163,-1,0.79,389,0.15,,-79,Rocky,false,false,false,false,true,
 FO-163e,FO-163e,FO-163,-1,2,551,959.94,,-121,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
 FO-163f,FO-163f,FO-163,-1,1.51,1021,25.47,,-202,Gaseous,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
 FO-163g,FO-163g,FO-163,-1,2.68,1030,36.06,,-215,Gaseous,false,false,false,true,false,true,true,false,3,High,High,Low,true
-FO-250a,Boucher          ,FO-250,0.4480406  ,1.13   ,425  ,1.22    ,      ,36         ,Rocky  ,false       ,false     ,false   ,false    ,false   ,false    ,false   ,false    ,1   ,Normal ,Normal ,Normal ,true
+FO-250a,Boucher,FO-250,0.4480406,1.13,425,1.22,,36,Rocky,false,false,false,false,false,false,false,false,1,Normal,Normal,Normal,true
 FO-250b,FO-250b,FO-250,,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 FO-250c,FO-250c,FO-250,-1,1.92,549,45.47,,-182,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
 FO-250d,FO-250d,FO-250,,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
@@ -327,7 +327,7 @@ KH-368c,,KH-368,-1,0.43,268,0.04,2178,-176,Rocky,false,false,false,false,true,fa
 KH-368d,,KH-368,-1,0.71,484,0.17,9986,-199,Rocky,false,false,false,false,true,false,true,false,3,Normal,Low,Low,false
 KH-368e,,KH-368,-1,1.52,482,161.06,9901,-216,Rocky,true,false,false,false,false,true,true,false,3,Normal,High,Low,false
 KH-552a,,KH-552,-1,1.07,368,0.02,5783,131,Rocky,false,false,false,false,true,false,false,true,4,Normal,Low,High,false
-KH-552b,Chu              ,KH-552,0.25683364 ,0.87   ,496  ,1.3     ,10430 ,24         ,Rocky  ,true        ,false     ,false   ,false    ,false   ,false    ,false   ,false    ,1   ,Normal ,Normal ,Normal ,false
+KH-552b,Chu,KH-552,0.25683364,0.87,496,1.3,10430,24,Rocky,true,false,false,false,false,false,false,false,1,Normal,Normal,Normal,false
 KH-552c,,KH-552,-1,0.85,369,0.05,5814,-47,Rocky,false,false,false,false,true,false,true,false,3,Normal,Low,Low,false
 KH-552d,,KH-552,-1,1,431,16.35,8059,-119,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,false
 KH-552e,,KH-552,-1,0.87,512,3.26,10994,-145,Rocky,true,false,false,false,false,true,true,false,3,Normal,High,Low,false
@@ -572,10 +572,10 @@ SM-521b,,SM-521,-1,0.43,318,0.04,,-158,Rocky,false,false,false,false,true,false,
 SM-521c,,SM-521,,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 SM-521d,,SM-521,-1,1.59,453,165.63,,-197,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
 SM-521e,,SM-521,,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
-SM-607a,Lachesis         ,SM-607,-1         ,0.78   ,366  ,0.08    ,      ,384        ,Rocky  ,false       ,false     ,false   ,false    ,true    ,false    ,false   ,true     ,4   ,Normal ,Low    ,High   ,true
+SM-607a,Lachesis,SM-607,-1,0.78,366,0.08,,384,Rocky,false,false,false,false,true,false,false,true,4,Normal,Low,High,true
 SM-607b,,SM-607,-1,1.08,458,4.98,9039,-111,Rocky,true,false,false,false,false,true,true,false,3,Normal,High,Low,false
 SM-607c,,SM-607,-1,0.7,853,24.98,23342,-130,Gaseous,true,false,false,false,false,true,true,false,3,Normal,High,Low,false
-SM-748a,Electronica      ,SM-748,-0.27158678,0.83   ,356  ,0.74    ,5363  ,23         ,Rocky  ,false       ,false     ,false   ,false    ,false   ,false    ,false   ,false    ,1   ,Normal ,Normal ,Normal ,false
+SM-748a,Electronica,SM-748,-0.27158678,0.83,356,0.74,5363,23,Rocky,false,false,false,false,false,false,false,false,1,Normal,Normal,Normal,false
 SM-748b,,SM-748,,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 SM-748c,,SM-748,,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 SM-748d,,SM-748,-1,0.96,849,35.61,,-150,Gaseous,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
@@ -598,7 +598,7 @@ SW-012f,SW-012f,SW-012,-1,,,,,,Gaseous,true,true,false,false,false,false,false,f
 SW-012g,SW-012g,SW-012,-1,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 SW-829a,SW-829a,SW-829,-1,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 SW-829b,SW-829b,SW-829,-1,1.05,367,0.39,,-160,Rocky,false,false,false,false,false,false,true,false,3,Normal,Normal,Low,true
-SW-829c,Ironforge        ,SW-829,-1         ,1      ,356  ,22.64   ,      ,-157       ,Rocky  ,false       ,false     ,false   ,false    ,false   ,true     ,true    ,false    ,3   ,Normal ,High   ,Low    ,true
+SW-829c,Ironforge,SW-829,-1,1,356,22.64,,-157,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
 SW-829d,SW-829d,SW-829,-1,0.61,392,1.44,,-196,Rocky,false,false,false,false,false,false,true,false,3,Normal,Normal,Low,true
 SW-829e,SW-829e,SW-829,-1,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 SW-893a,SW-893a,SW-893,-1,0.61,326,0.01,,311,Rocky,false,false,false,false,true,false,false,true,4,Normal,Low,High,true
@@ -627,7 +627,7 @@ TK-258g,TK-258g,TK-258,-1,2.22,946,29.29,,-185,Gaseous,false,false,false,false,f
 TK-258h,TK-258h,TK-258,-1,,,,,,Gaseous,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 TK-575a,TK-575a,TK-575,-1,0.61,371,3.58,,197,Rocky,false,false,false,false,false,true,false,true,4,Normal,High,High,true
 TK-575b,TK-575b,TK-575,-1,1.21,406,36.86,,109,Rocky,false,false,false,false,false,true,false,true,4,Normal,High,High,true
-TK-575c,TK-575 c,TK-575,-1,,397,,,,Rocky,false,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
+TK-575c,TK-575c,TK-575,-1,,397,,,,Rocky,false,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 TK-575d,TK-575d,TK-575,-1,0.24,288,0.02,,-79,Rocky,false,false,true,false,true,false,true,false,3,Low,Low,Low,true
 TK-575e,TK-575e,TK-575,-1,0.82,478,7.95,,-89,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
 TK-949a,TK-949a,TK-949,-1,1.21,412,6.69,,322,Rocky,false,false,false,false,false,true,false,true,4,Normal,High,High,true
@@ -688,9 +688,9 @@ WN-428h,,WN-428,-1,0.9,951,42.79,,-227,Gaseous,false,false,false,false,false,tru
 WN-476a,,WN-476,-1,0.87,422,3.15,,98,Rocky,false,false,false,false,false,true,false,true,4,Normal,High,High,true
 WN-476b,,WN-476,-1,0.83,461,6.51,,2,Rocky,false,false,false,false,false,true,false,false,3,Normal,High,Normal,true
 WN-476c,,WN-476,-1,0.55,414,3.78,,42,Rocky,false,false,false,false,false,true,false,false,3,Normal,High,Normal,true
-WN-476d,Ice Station Alpha,WN-476,-1,0.73,511,0.03,,-144,Rocky,false,false,false,false,true,false,true,false,3,Normal,Low,Low,true
+WN-476d,IceStationAlpha,WN-476,-1,0.73,511,0.03,,-144,Rocky,false,false,false,false,true,false,true,false,3,Normal,Low,Low,true
 WN-506a,Proxion,WN-506,0.22000003,1.12,400,0.94,,8,Rocky,false,false,false,false,false,false,false,false,1,Normal,Normal,Normal,true
-WN-506b,Distys           ,WN-506,-1         ,0.57   ,472  ,2.12    ,      ,-150       ,Rocky  ,false       ,false     ,false   ,false    ,false   ,true     ,true    ,false    ,3   ,Normal ,High   ,Low    ,true
+WN-506b,Distys,WN-506,-1,0.57,472,2.12,,-150,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
 WN-506c,,WN-506,,,,,,,Rocky,true,true,false,false,false,false,false,false,5,Unknown,Unknown,Unknown,true
 WN-506d,,WN-506,-1,1.31,465,6.96,,-219,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,true
 WN-506e,,WN-506,-1,0.97,653,60.93,,-228,Rocky,false,false,false,false,false,true,true,false,3,Normal,High,Low,true

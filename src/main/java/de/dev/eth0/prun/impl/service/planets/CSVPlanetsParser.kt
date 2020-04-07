@@ -9,6 +9,7 @@ import de.dev.eth0.prun.impl.model.PlanetaryResource
 import de.dev.eth0.prun.impl.service.planets.model.CSVPlanet
 import de.dev.eth0.prun.impl.service.planets.model.CSVPlanetaryResource
 import de.dev.eth0.prun.impl.util.CsvUtil
+import org.slf4j.LoggerFactory
 
 /**
  * Parser for the planets
@@ -16,7 +17,7 @@ import de.dev.eth0.prun.impl.util.CsvUtil
 class CSVPlanetsParser constructor(planetsFile: String, planetaryResourcesFile: String) {
   val planetsById: Map<String, Planet>
   val planetsByResource: Map<String, List<Planet>>
-
+  private val logger = LoggerFactory.getLogger(CSVPlanetsParser::class.java.simpleName)
 
   init {
     val allPlanets = CsvUtil.loadObjectList(CSVPlanet::class.java, planetsFile)
@@ -34,6 +35,7 @@ class CSVPlanetsParser constructor(planetsFile: String, planetaryResourcesFile: 
   }
 
   private fun buildPlanet(csvPlanet: CSVPlanet, planetaryResources: List<CSVPlanetaryResource>): Planet {
+    logger.debug("parsing $csvPlanet")
     val resources = planetaryResources.map { it.resourceId to buildPlanetaryResource(it) }.toMap()
     return Planet(
         csvPlanet.id,
