@@ -21,6 +21,8 @@ public class FilesProperties {
   private String resources;
   @NotBlank
   private String planetaryResources;
+  @NotBlank
+  private String buildings;
 
   public String getPlanets() {
     return planets;
@@ -44,5 +46,13 @@ public class FilesProperties {
 
   public void setPlanetaryResources(String planetaryResources) {
     this.planetaryResources = planetaryResources;
+  }
+
+  public String getBuildings() {
+    return buildings;
+  }
+
+  public void setBuildings(String buildings) {
+    this.buildings = buildings;
   }
 }

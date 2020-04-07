@@ -1,0 +1,140 @@
+{
+  "pioneers": {
+    "dw": {
+      "amount": 4,
+      "essential": true
+    },
+    "rat": {
+      "amount": 4,
+      "essential": true
+    },
+    "ove": {
+      "amount": 0.5,
+      "essential": true
+    },
+    "pwo": {
+      "amount": 0.2,
+      "essential": false
+    },
+    "cof": {
+      "amount": 0.5,
+      "essential": false
+    }
+  },
+  "settlers": {
+    "dw": {
+      "amount": 5,
+      "essential": true
+    },
+    "rat": {
+      "amount": 6,
+      "essential": true
+    },
+    "exo": {
+      "amount": 0.5,
+      "essential": true
+    },
+    "pt": {
+      "amount": 0.5,
+      "essential": true
+    },
+    "rep": {
+      "amount": 0.2,
+      "essential": false
+    },
+    "kom": {
+      "amount": 1,
+      "essential": false
+    }
+  },
+  "technicians": {
+    "dw": {
+      "amount": 7.5,
+      "essential": true
+    },
+    "rat": {
+      "amount": 7,
+      "essential": true
+    },
+    "med": {
+      "amount": 0.5,
+      "essential": true
+    },
+    "hms": {
+      "amount": 0.5,
+      "essential": true
+    },
+    "scn": {
+      "amount": 0.1,
+      "essential": true
+    },
+    "ale": {
+      "amount": 1,
+      "essential": false
+    },
+    "sc": {
+      "amount": 0.1,
+      "essential": false
+    }
+  },
+  "engineers": {
+    "dw": {
+      "amount": 10,
+      "essential": true
+    },
+    "fim": {
+      "amount": 7,
+      "essential": true
+    },
+    "med": {
+      "amount": 0.5,
+      "essential": true
+    },
+    "hss": {
+      "amount": 0.2,
+      "essential": true
+    },
+    "pda": {
+      "amount": 0.1,
+      "essential": true
+    },
+    "gin": {
+      "amount": 1,
+      "essential": false
+    },
+    "vg": {
+      "amount": 0.2,
+      "essential": false
+    }
+  },
+  "scientists": {
+    "dw": {
+      "amount": 10,
+      "essential": true
+    },
+    "mea": {
+      "amount": 7,
+      "essential": true
+    },
+    "med": {
+      "amount": 0.5,
+      "essential": true
+    },
+    "lc": {
+      "amount": 0.2,
+      "essential": true
+    },
+    "ws": {
+      "amount": 0.1,
+      "essential": true
+    },
+    "win": {
+      "amount": 1,
+      "essential": false
+    },
+    "nst": {
+      "amount": 0.1,
+      "essential": false
+    }
+  }
+}

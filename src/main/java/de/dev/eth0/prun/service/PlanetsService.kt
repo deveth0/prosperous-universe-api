@@ -12,6 +12,11 @@ import de.dev.eth0.prun.impl.model.Planet
 interface PlanetsService {
 
   /**
+   * Get all planets
+   */
+  fun getPlanets(): Map<String, Planet>
+
+  /**
    * Return the Planet with the given Id or name
    */
   fun getPlanet(planetId: String): Planet?

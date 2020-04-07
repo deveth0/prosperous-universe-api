@@ -1,0 +1,344 @@
+{
+  "FF": {
+    "id": "FF",
+    "name": "Fermenter",
+    "area": 25,
+    "expertise": "FOOD_INDUSTRIES",
+    "settlers": 60
+  },
+  "COL": {
+    "id": "COL",
+    "name": "Collector",
+    "area": 15,
+    "expertise": "RESOURCE_EXTRACTION",
+    "pioneers": 50
+  },
+  "AML": {
+    "id": "AML",
+    "name": "Advanced Material Lab",
+    "area": 55,
+    "expertise": "CHEMISTRY",
+    "technicians": 20,
+    "engineers": 30
+  },
+  "ORC": {
+    "id": "ORC",
+    "name": "Orchard",
+    "area": 120,
+    "expertise": "FOOD_INDUSTRIES",
+    "settlers": 70,
+    "technicians": 10
+  },
+  "FRM": {
+    "id": "FRM",
+    "name": "Farmstead",
+    "area": 30,
+    "expertise": "AGRICULTURE",
+    "pioneers": 50
+  },
+  "EXT": {
+    "id": "EXT",
+    "name": "Extractor",
+    "area": 25,
+    "expertise": "RESOURCE_EXTRACTION",
+    "pioneers": 60
+  },
+  "IVP": {
+    "id": "IVP",
+    "name": "In-Vitro Plant",
+    "area": 32,
+    "expertise": "FOOD_INDUSTRIES",
+    "technicians": 70
+  },
+  "BMP": {
+    "id": "BMP",
+    "name": "Basic Materials Plant",
+    "area": 12,
+    "expertise": "MANUFACTURING",
+    "pioneers": 100
+  },
+  "PPF": {
+    "id": "PPF",
+    "name": "3D Printer",
+    "area": 16,
+    "expertise": "MANUFACTURING",
+    "settlers": 50
+  },
+  "HBB": {
+    "id": "HBB",
+    "name": "Barracks",
+    "area": 15,
+    "pioneers": -75,
+    "settlers": -75
+  },
+  "ELP": {
+    "id": "ELP",
+    "name": "Electronics Plant",
+    "area": 35,
+    "expertise": "ELECTRONICS",
+    "technicians": 40
+  },
+  "CLR": {
+    "id": "CLR",
+    "name": "Cleanroom",
+    "area": 27,
+    "expertise": "ELECTRONICS",
+    "settlers": 25,
+    "technicians": 15
+  },
+  "HBC": {
+    "id": "HBC",
+    "name": "Communal Abode",
+    "area": 22,
+    "settlers": -75,
+    "technicians": -75
+  },
+  "CM": {
+    "id": "CM",
+    "name": "Core Module",
+    "area": 25
+  },
+  "FP": {
+    "id": "FP",
+    "name": "Food Processor",
+    "area": 12,
+    "expertise": "FOOD_INDUSTRIES",
+    "pioneers": 40
+  },
+  "CHP": {
+    "id": "CHP",
+    "name": "Chemical Plant",
+    "area": 18,
+    "expertise": "CHEMISTRY",
+    "pioneers": 20,
+    "settlers": 60
+  },
+  "SME": {
+    "id": "SME",
+    "name": "Smelter",
+    "area": 17,
+    "expertise": "METALLURGY",
+    "pioneers": 50
+  },
+  "MCA": {
+    "id": "MCA",
+    "name": "Medium Components Assembly",
+    "area": 35,
+    "expertise": "MANUFACTURING",
+    "settlers": 20,
+    "technicians": 20
+  },
+  "FS": {
+    "id": "FS",
+    "name": "Metalist Studio",
+    "area": 25,
+    "expertise": "METALLURGY",
+    "settlers": 50
+  },
+  "LAB": {
+    "id": "LAB",
+    "name": "Laboratory",
+    "area": 25,
+    "expertise": "CHEMISTRY",
+    "settlers": 20,
+    "technicians": 70
+  },
+  "POL": {
+    "id": "POL",
+    "name": "Polymer Plant",
+    "area": 15,
+    "expertise": "CHEMISTRY",
+    "pioneers": 10,
+    "settlers": 25
+  },
+  "STO": {
+    "id": "STO",
+    "name": "Storage Facility",
+    "area": 15
+  },
+  "RIG": {
+    "id": "RIG",
+    "name": "Rig",
+    "area": 10,
+    "expertise": "RESOURCE_EXTRACTION",
+    "pioneers": 30
+  },
+  "EEP": {
+    "id": "EEP",
+    "name": "Electronics Plant",
+    "area": 200,
+    "expertise": "CHEMISTRY",
+    "engineers": 60,
+    "scientists": 40
+  },
+  "PP1": {
+    "id": "PP1",
+    "name": "Prefab Plant MK1",
+    "area": 19,
+    "expertise": "CONSTRUCTION",
+    "pioneers": 80
+  },
+  "SD": {
+    "id": "SD",
+    "name": "Software Development",
+    "area": 100,
+    "expertise": "ELECTRONICS",
+    "engineers": 60
+  },
+  "SCA": {
+    "id": "SCA",
+    "name": "Small Components Assembly",
+    "area": 35,
+    "expertise": "MANUFACTURING",
+    "technicians": 30
+  },
+  "PP2": {
+    "id": "PP2",
+    "name": "Prefab Plant MK2",
+    "area": 25,
+    "expertise": "CONSTRUCTION",
+    "pioneers": 25,
+    "settlers": 25
+  },
+  "HBL": {
+    "id": "HBL",
+    "name": "Luxury Residence",
+    "area": 12,
+    "engineers": -75,
+    "scientists": -75
+  },
+  "REF": {
+    "id": "REF",
+    "name": "Refinery",
+    "area": 25,
+    "expertise": "FUEL_REFINING",
+    "pioneers": 60,
+    "settlers": 20
+  },
+  "WPL": {
+    "id": "WPL",
+    "name": "Weaving Plant",
+    "area": 40,
+    "expertise": "MANUFACTURING",
+    "settlers": 70
+  },
+  "PP3": {
+    "id": "PP3",
+    "name": "Prefab Plant MK3",
+    "area": 32,
+    "expertise": "CONSTRUCTION",
+    "settlers": 20,
+    "technicians": 40
+  },
+  "HBM": {
+    "id": "HBM",
+    "name": "Management Domicile",
+    "area": 25,
+    "technicians": -75,
+    "engineers": -75
+  },
+  "PP4": {
+    "id": "PP4",
+    "name": "Prefab Plant MK4",
+    "area": 40,
+    "expertise": "CONSTRUCTION",
+    "technicians": 40,
+    "engineers": 30
+  },
+  "HYF": {
+    "id": "HYF",
+    "name": "Hydroponics Farm",
+    "area": 15,
+    "expertise": "AGRICULTURE",
+    "pioneers": 40,
+    "settlers": 20
+  },
+  "TNP": {
+    "id": "TNP",
+    "name": "Technetium Processing",
+    "area": 60,
+    "expertise": "CHEMISTRY",
+    "technicians": 80
+  },
+  "APF": {
+    "id": "APF",
+    "name": "Appliances Factory",
+    "area": 60,
+    "expertise": "MANUFACTURING",
+    "technicians": 60,
+    "engineers": 20
+  },
+  "HB1": {
+    "id": "HB1",
+    "name": "Pioneer Habitation",
+    "area": 10,
+    "pioneers": -100
+  },
+  "HB2": {
+    "id": "HB2",
+    "name": "Settler Habitation",
+    "area": 12,
+    "settlers": -100
+  },
+  "SL": {
+    "id": "SL",
+    "name": "Software Labs",
+    "area": 200,
+    "expertise": "ELECTRONICS",
+    "scientists": 70
+  },
+  "HB3": {
+    "id": "HB3",
+    "name": "Technician Habitation",
+    "area": 20,
+    "technicians": -100
+  },
+  "HB4": {
+    "id": "HB4",
+    "name": "Engineering Habitation",
+    "area": 30,
+    "engineers": -100
+  },
+  "ASM": {
+    "id": "ASM",
+    "name": "High-Power Blast Furnace",
+    "area": 50,
+    "expertise": "METALLURGY",
+    "technicians": 50,
+    "engineers": 20
+  },
+  "HB5": {
+    "id": "HB5",
+    "name": "Scientist Habitation",
+    "area": 16,
+    "scientists": -100
+  },
+  "CLF": {
+    "id": "CLF",
+    "name": "Textile Manufacturing",
+    "area": 37,
+    "expertise": "MANUFACTURING",
+    "settlers": 40
+  },
+  "WEL": {
+    "id": "WEL",
+    "name": "Welding Plant",
+    "area": 19,
+    "expertise": "CONSTRUCTION",
+    "pioneers": 70
+  },
+  "INC": {
+    "id": "INC",
+    "name": "Incinerator",
+    "area": 10,
+    "expertise": "RESOURCE_EXTRACTION",
+    "pioneers": 40
+  },
+  "GF": {
+    "id": "GF",
+    "name": "Glass Furnace",
+    "area": 27,
+    "expertise": "METALLURGY",
+    "pioneers": 80
+  }
+}

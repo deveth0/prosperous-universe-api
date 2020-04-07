@@ -3,10 +3,13 @@ logging:
     ROOT: INFO
     de.dev.eth0: INFO
 
-
+spring:
+  jackson:
+    default-property-inclusion: non_null
 app:
   files:
     planets: data/data_planets.csv
     resources: data/data_resources.csv
     planetary_resources: data/dlinks_planetary_resources.csv
+    buildings: data/buildings.json
 

@@ -28,6 +28,11 @@ open class PlanetsServiceImpl @Autowired constructor(filesProperties: FilesPrope
   }
 
   @Cacheable("planets")
+  override fun getPlanets(): Map<String, Planet> {
+    return planets
+  }
+
+  @Cacheable("planet")
   override fun getPlanet(planetId: String): Planet? {
     logger.debug("getPlanet($planetId)")
     return if (planets.containsKey(planetId.toLowerCase()))

@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping(path = ["/planets"], produces = [MediaType.APPLICATION_JSON_VALUE])
 class PlanetController @Autowired constructor(val planetsService: PlanetsService) {
 
+  @ApiOperation("Get all planets")
+  @GetMapping
+  fun planets(): Map<String, Planet> {
+    return planetsService.getPlanets()
+  }
 
   @ApiOperation("Retrieve information on the given planet (either by Id or Name)")
   @GetMapping(path = ["/{planetId}"])
