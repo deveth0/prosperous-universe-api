@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020.  dev-eth0.de All rights reserved.
+ */
+
 package de.dev.eth0.prun.impl.util
 
 import com.fasterxml.jackson.databind.MappingIterator

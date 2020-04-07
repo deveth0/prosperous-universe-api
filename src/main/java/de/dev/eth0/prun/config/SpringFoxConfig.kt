@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020.  dev-eth0.de All rights reserved.
+ */
+
 package de.dev.eth0.prun.config
 
 import com.google.common.base.Predicates

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 dev-eth0.de All rights reserved.
+ * Copyright (c) 2020.  dev-eth0.de All rights reserved.
  */
 
 package de.dev.eth0.prun;
