@@ -6,8 +6,10 @@ package de.dev.eth0.prun.impl.service.base.model
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
+import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
+@ApiModel(value = "Building", description = "Info on a building")
 data class Building @JsonCreator constructor(
     @ApiModelProperty(value = "Unique Id of the Building", example = "FF")
     @JsonProperty("id") val id: String,
@@ -23,6 +25,8 @@ data class Building @JsonCreator constructor(
     @JsonProperty("settlers", required = false) val settlers: Int?,
     @ApiModelProperty(value = "Number of Technicians Workers", example = "20")
     @JsonProperty("technicians", required = false) val technicians: Int?,
+    @ApiModelProperty(value = "Number of Engineer Workers", example = "20")
+    @JsonProperty("engineers", required = false) val engineers: Int?,
     @ApiModelProperty(value = "Number of Scientist Workers", example = "50")
     @JsonProperty("scientists", required = false) val scientists: Int?
 ) {

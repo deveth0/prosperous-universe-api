@@ -5,14 +5,14 @@
 package de.dev.eth0.prun.controller
 
 import de.dev.eth0.prun.impl.service.base.BuildingsService
+import de.dev.eth0.prun.impl.service.base.model.Base
+import de.dev.eth0.prun.impl.service.base.model.BaseCalculation
 import de.dev.eth0.prun.impl.service.base.model.Building
 import de.dev.eth0.prun.service.BaseService
 import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping(path = ["/base"], produces = [MediaType.APPLICATION_JSON_VALUE])
@@ -23,4 +23,11 @@ class BaseController @Autowired constructor(private val baseService: BaseService
   fun getBuildings(): Map<String, Building> {
     return buildingsService.buildings
   }
+
+  @ApiOperation("Calculate the Base Facts")
+  @PostMapping
+  fun getBaseCalculation(@RequestBody base: Base): BaseCalculation {
+    return baseService.calculate(base)
+  }
+
 }

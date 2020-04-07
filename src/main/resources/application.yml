@@ -12,4 +12,5 @@ app:
     resources: data/data_resources.csv
     planetary_resources: data/dlinks_planetary_resources.csv
     buildings: data/buildings.json
+    consumption: data/consumption.json
 

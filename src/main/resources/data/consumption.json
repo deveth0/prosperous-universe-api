@@ -1,140 +1,172 @@
 {
-  "pioneers": {
-    "dw": {
+  "PIONEERS": [
+    {
+      "ticker": "DW",
       "amount": 4,
       "essential": true
     },
-    "rat": {
+    {
+      "ticker": "RAT",
       "amount": 4,
       "essential": true
     },
-    "ove": {
+    {
+      "ticker": "OVE",
       "amount": 0.5,
       "essential": true
     },
-    "pwo": {
+    {
+      "ticker": "PWO",
       "amount": 0.2,
       "essential": false
     },
-    "cof": {
+    {
+      "ticker": "COF",
       "amount": 0.5,
       "essential": false
     }
-  },
-  "settlers": {
-    "dw": {
+  ],
+  "SETTLERS": [
+    {
+      "ticker": "DW",
       "amount": 5,
       "essential": true
     },
-    "rat": {
+    {
+      "ticker": "RAT",
       "amount": 6,
       "essential": true
     },
-    "exo": {
+    {
+      "ticker": "EXO",
       "amount": 0.5,
       "essential": true
     },
-    "pt": {
+    {
+      "ticker": "PT",
       "amount": 0.5,
       "essential": true
     },
-    "rep": {
+    {
+      "ticker": "REP",
       "amount": 0.2,
       "essential": false
     },
-    "kom": {
+    {
+      "ticker": "KOM",
       "amount": 1,
       "essential": false
     }
-  },
-  "technicians": {
-    "dw": {
+  ],
+  "TECHNICIANS": [
+    {
+      "ticker": "DW",
       "amount": 7.5,
       "essential": true
     },
-    "rat": {
+    {
+      "ticker": "RAT",
       "amount": 7,
       "essential": true
     },
-    "med": {
+    {
+      "ticker": "MED",
       "amount": 0.5,
       "essential": true
     },
-    "hms": {
+    {
+      "ticker": "HMS",
       "amount": 0.5,
       "essential": true
     },
-    "scn": {
+    {
+      "ticker": "SCN",
       "amount": 0.1,
       "essential": true
     },
-    "ale": {
+    {
+      "ticker": "ALE",
       "amount": 1,
       "essential": false
     },
-    "sc": {
+    {
+      "ticker": "SC",
       "amount": 0.1,
       "essential": false
     }
-  },
-  "engineers": {
-    "dw": {
+  ],
+  "ENGINEERS": [
+    {
+      "ticker": "DW",
       "amount": 10,
       "essential": true
     },
-    "fim": {
+    {
+      "ticker": "FIM",
       "amount": 7,
       "essential": true
     },
-    "med": {
+    {
+      "ticker": "MED",
       "amount": 0.5,
       "essential": true
     },
-    "hss": {
+    {
+      "ticker": "HSS",
       "amount": 0.2,
       "essential": true
     },
-    "pda": {
+    {
+      "ticker": "PDA",
       "amount": 0.1,
       "essential": true
     },
-    "gin": {
+    {
+      "ticker": "GIN",
       "amount": 1,
       "essential": false
     },
-    "vg": {
+    {
+      "ticker": "VG",
       "amount": 0.2,
       "essential": false
     }
-  },
-  "scientists": {
-    "dw": {
+  ],
+  "SCIENTISTS": [
+    {
+      "ticker": "DW",
       "amount": 10,
       "essential": true
     },
-    "mea": {
+    {
+      "ticker": "MEA",
       "amount": 7,
       "essential": true
     },
-    "med": {
+    {
+      "ticker": "MED",
       "amount": 0.5,
       "essential": true
     },
-    "lc": {
+    {
+      "ticker": "LC",
       "amount": 0.2,
       "essential": true
     },
-    "ws": {
+    {
+      "ticker": "WS",
       "amount": 0.1,
       "essential": true
     },
-    "win": {
+    {
+      "ticker": "WIN",
       "amount": 1,
       "essential": false
     },
-    "nst": {
+    {
+      "ticker": "NST",
       "amount": 0.1,
       "essential": false
     }
-  }
+  ]
 }
