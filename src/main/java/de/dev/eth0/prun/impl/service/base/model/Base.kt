@@ -6,6 +6,7 @@ package de.dev.eth0.prun.impl.service.base.model
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
+import de.dev.eth0.prun.impl.model.Building
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 
@@ -17,8 +18,10 @@ data class Base @JsonCreator constructor(
     @ApiModelProperty(value = "Buildings in this base")
     @JsonProperty("buildings") val buildings: List<String>,
     @ApiModelProperty(value = "Consumption-Settings for this base")
-    @JsonProperty("consumption") val consumption: Map<PopulationLevel, BaseConsumptionSetting>,
-    @ApiModelProperty(value = "Recipes for this base")
-    @JsonProperty("recipes") val recipes: Map<String, Int>
+    @JsonProperty("consumption") val consumption: Map<PopulationLevel, BaseConsumptionSetting> = mapOf(),
+    @ApiModelProperty(value = "Recipes for this base and the percentage usage (0..1)")
+    @JsonProperty("recipes") val recipes: Map<String, Double>,
+    @ApiModelProperty("Experts")
+    @JsonProperty("experts") val experts: Map<Building.Expertise, Int> = mapOf()
 
 )

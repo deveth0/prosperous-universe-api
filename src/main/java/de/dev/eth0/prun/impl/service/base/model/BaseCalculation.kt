@@ -20,6 +20,9 @@ data class BaseCalculation @JsonCreator constructor(
     @ApiModelProperty(value = "Consumption of the base")
     @JsonProperty("consumption") val consumption: Map<PopulationLevel, List<PopulationConsumption>>,
 
+    @ApiModelProperty("Efficiencies of the buildings")
+    @JsonProperty("efficiency") val efficiency: Map<String, Double>,
+
     @ApiModelProperty("Material input/output of the base")
     @JsonProperty("materials") val materials: Map<String, Double>
 

@@ -5,8 +5,11 @@
 package de.dev.eth0.prun.impl.service.base
 
 import de.dev.eth0.prun.impl.model.Building
+import de.dev.eth0.prun.impl.model.Planet
 import de.dev.eth0.prun.impl.service.base.model.*
+import de.dev.eth0.prun.impl.util.MathUtil
 import de.dev.eth0.prun.service.BaseService
+import de.dev.eth0.prun.service.PlanetsService
 import de.dev.eth0.prun.service.RecipeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -16,30 +19,48 @@ import kotlin.math.abs
 class BaseServiceImpl @Autowired constructor(
     private val buildingsService: BuildingsService,
     private val recipeService: RecipeService,
+    private val planetsService: PlanetsService,
     private val consumptionService: ConsumptionService) : BaseService {
 
   override fun calculate(base: Base): BaseCalculation {
+    val planet = planetsService.getPlanet(base.planet) ?: throw Exception("invalid planet")
+
     val buildings = base.buildings.mapNotNull { buildingsService.getBuilding(it) }
     val area = buildings.sumBy { it.area }
 
 
-    val population = getPopulation(buildings, base.consumption);
+    val population = getPopulation(buildings, base.consumption)
 
     val consumables = consumptionService.calculateConsumption(population, base.consumption)
 
-    val materials = getMaterials(base, population)
-    return BaseCalculation(area, population, consumables, materials)
+    val buildingEfficiencies = getBuildingEfficiencies(base, population, planet)
+
+    val materials = getMaterials(base, buildingEfficiencies)
+    return BaseCalculation(area, population, consumables, buildingEfficiencies, materials)
   }
 
-  private fun getMaterials(base: Base, population: Map<PopulationLevel, Population>): Map<String, Double> {
-    val recipes = base.recipes.mapNotNull { r -> recipeService.getRecipe(r.key)?.let { Pair(it, r.value) } }.toMap()
+  private fun getBuildingEfficiencies(base: Base, population: Map<PopulationLevel, Population>, planet: Planet): Map<String, Double> {
+    val efficiencyCalculator = BuildingEfficiencyCalculator()
+    return base.buildings
+        .mapNotNull { buildingId -> buildingsService.getBuilding(buildingId).let { it } }
+        .map { building -> building.id to efficiencyCalculator.calculateEfficiency(building, base, population, planet) }.toMap()
+  }
 
-    val materials = mutableListOf<Pair<String, Double>>()
-    for (recipe in recipes) {
-      recipe.key.inputs.forEach { materials.add(Pair(it.key, -1 * it.value * 1.0)) }
-      recipe.key.outputs.forEach { materials.add(Pair(it.key, it.value * 1.0)) }
+  private fun getMaterials(base: Base, buildingEfficiencies: Map<String, Double>): Map<String, Double> {
+    //TODO: throw exception on invalid recipes
+    val recipes = base.recipes.mapNotNull { r -> recipeService.getRecipe(r.key)?.let { Pair(it, r.value) } }.toMap()
+    val buildingNumber = base.buildings.groupingBy { it }.eachCount()
+
+    val calculator = ProductionCalculator()
+    val materials = mutableListOf<Map.Entry<String, Double>>()
+    for ((recipe, amount) in recipes) {
+      val efficiency = buildingEfficiencies[recipe.buildingId]
+      if (efficiency != null && efficiency > 0 && buildingNumber.containsKey(recipe.buildingId)) {
+        val factor = buildingNumber[recipe.buildingId]!! * amount
+        materials.addAll(calculator.calculateProduction(recipe, efficiency).mapValues { it.value * factor }.entries)
+      }
     }
-    return materials.groupBy { it.first }.mapValues { it.value.sumByDouble { pair -> pair.second } }
+    return materials.groupBy { it.key }.mapValues { MathUtil.round(it.value.sumByDouble { entry -> entry.value }, 2) }
   }
 
   private fun getPopulation(buildings: List<Building>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Map<PopulationLevel, Population> {

@@ -23,7 +23,6 @@ class ConsumptionService @Autowired constructor(filesProperties: FilesProperties
     consumptions = parser.consumptions
   }
 
-
   /**
    * Calculate the Consumables for the given workforce
    */
