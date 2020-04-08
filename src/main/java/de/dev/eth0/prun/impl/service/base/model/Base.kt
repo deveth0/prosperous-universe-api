@@ -22,6 +22,8 @@ data class Base @JsonCreator constructor(
     @ApiModelProperty(value = "Recipes for this base and the percentage usage (0..1)")
     @JsonProperty("recipes") val recipes: Map<String, Double>,
     @ApiModelProperty("Experts")
-    @JsonProperty("experts") val experts: Map<Building.Expertise, Int> = mapOf()
+    @JsonProperty("experts") val experts: Map<Building.Expertise, Int> = mapOf(),
+    @ApiModelProperty("Chamber of Global Commerce Bonus")
+    @JsonProperty("cogcBonus") val cogcBonus: CoGCBonus?
 
 )

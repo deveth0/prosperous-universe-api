@@ -7,6 +7,7 @@ package de.dev.eth0.prun.impl.service.base
 import de.dev.eth0.prun.impl.model.Building
 import de.dev.eth0.prun.impl.model.Planet
 import de.dev.eth0.prun.impl.service.base.model.Base
+import de.dev.eth0.prun.impl.service.base.model.CoGCBonus
 import de.dev.eth0.prun.impl.service.base.model.Population
 import de.dev.eth0.prun.impl.service.base.model.PopulationLevel
 import de.dev.eth0.prun.impl.util.MathUtil
@@ -40,8 +41,8 @@ class BuildingEfficiencyCalculator {
     // ignore any buildings without expertise (CM, HB1, etc)
     if (building.expertise == null) return 0.0
 
-    var efficiency = getWorkforceEficiency(building, population)
-    efficiency += getCoGCBonus(building, base)
+    var efficiency = getWorkforceEficiency(building, population, base.cogcBonus)
+    efficiency += getCogcBonus(building, base.cogcBonus)
     efficiency += getExpertBonus(building, base)
     efficiency += getFertilityBonus(building, planet)
     return MathUtil.round(efficiency, 3)
@@ -50,8 +51,11 @@ class BuildingEfficiencyCalculator {
   /**
    * Workforce efficency is the sum of all worker efficiencies multiplied by the number of workers divided by number of workers
    * e.g. REF: (60 * Eff_pio + 20 * Eff_set) / 80
+   *
+   * If a cogc bonus for a group is set, it's added to the value:
+   * e.g. REF: (60 * (Eff_pio + 10) + 20 * Eff_set) / 80
    */
-  private fun getWorkforceEficiency(building: Building, population: Map<PopulationLevel, Population>): Double {
+  private fun getWorkforceEficiency(building: Building, population: Map<PopulationLevel, Population>, cogcBonus: CoGCBonus?): Double {
     val workforce = mapOf(
         PopulationLevel.PIONEERS to (building.pioneers ?: 0),
         PopulationLevel.SETTLERS to (building.settlers ?: 0),
@@ -60,12 +64,20 @@ class BuildingEfficiencyCalculator {
         PopulationLevel.SCIENTISTS to (building.scientists ?: 0)
     )
     val sumWorkforce = workforce.values.sum()
-    val efficiency = workforce.map { it.value * (population[it.key]?.efficiency ?: 0.0) }
+
+    val effectiveEfficiency = population.map {
+      it.key to
+          (it.value.efficiency + if (cogcBonus != null && cogcBonus.toString() == it.key.toString()) cogcBonus.bonus else 0.0)
+    }.toMap()
+
+    val efficiency = workforce.map { it.value * (effectiveEfficiency[it.key] ?: 0.0) }
     return efficiency.sum() / sumWorkforce
   }
 
-  private fun getCoGCBonus(building: Building, base: Base): Double {
-    //TODO: add CoGC
+  private fun getCogcBonus(building: Building, cocgBonus: CoGCBonus?): Double {
+    if (cocgBonus != null && cocgBonus.toString() == building.expertise.toString()) {
+      return cocgBonus.bonus
+    }
     return 0.0
   }
 
