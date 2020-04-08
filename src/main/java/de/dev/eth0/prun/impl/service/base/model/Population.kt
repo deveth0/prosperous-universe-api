@@ -29,9 +29,9 @@ data class Population @JsonCreator constructor(
 
   @ApiModelProperty("Satisfaction of the population, value between 0 and 1", example = "0.9")
   @JsonProperty("satisfaction")
-  val satisfaction = min(1.0, if (capacity > 0 && required > 0) capacity / required.toDouble() else 0.0)
+  val satisfaction = MathUtil.round(min(1.0, if (capacity > 0 && required > 0) capacity / required.toDouble() else 0.0), 4)
 
   @ApiModelProperty("Efficiency of the population, value between 0 and 1", example = "0.87")
   @JsonProperty("efficiency")
-  val efficiency = MathUtil.round(satisfaction * 0.79 + if (luxury1 && luxury2) 0.21 else if (luxury1 || luxury2) 0.08 else 0.0, 3)
+  val efficiency = MathUtil.round(satisfaction * 0.79 + if (luxury1 && luxury2) 0.21 else if (luxury1 || luxury2) 0.08 else 0.0, 4)
 }

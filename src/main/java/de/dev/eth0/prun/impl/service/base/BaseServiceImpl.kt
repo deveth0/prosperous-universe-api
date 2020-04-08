@@ -6,6 +6,7 @@ package de.dev.eth0.prun.impl.service.base
 
 import de.dev.eth0.prun.impl.model.Building
 import de.dev.eth0.prun.impl.model.Planet
+import de.dev.eth0.prun.impl.model.PlanetaryResource
 import de.dev.eth0.prun.impl.service.base.model.*
 import de.dev.eth0.prun.impl.util.MathUtil
 import de.dev.eth0.prun.service.BaseService
@@ -35,7 +36,7 @@ class BaseServiceImpl @Autowired constructor(
 
     val buildingEfficiencies = getBuildingEfficiencies(base, population, planet)
 
-    val materials = getMaterials(base, buildingEfficiencies)
+    val materials = getMaterials(base, planet, buildingEfficiencies)
     val materialsConsumables = consumables.values.map { it.map { mat -> mat.ticker to mat.amount } }.flatten()
         .groupBy { it.first }
         .mapValues { -1 * MathUtil.round(it.value.sumByDouble { entry -> entry.second }, 2) }
@@ -54,13 +55,15 @@ class BaseServiceImpl @Autowired constructor(
         .map { building -> building.id to efficiencyCalculator.calculateEfficiency(building, base, population, planet) }.toMap()
   }
 
-  private fun getMaterials(base: Base, buildingEfficiencies: Map<String, Double>): Map<String, Double> {
+  private fun getMaterials(base: Base, planet: Planet, buildingEfficiencies: Map<String, Double>): Map<String, Double> {
     //TODO: throw exception on invalid recipes
     val recipes = base.recipes.mapNotNull { r -> recipeService.getRecipe(r.key)?.let { Pair(it, r.value) } }.toMap()
     val buildingNumber = base.buildings.groupingBy { it }.eachCount()
 
     val calculator = ProductionCalculator()
     val materials = mutableListOf<Map.Entry<String, Double>>()
+
+    // production recipes
     for ((recipe, amount) in recipes) {
       val efficiency = buildingEfficiencies[recipe.buildingId]
       if (efficiency != null && efficiency > 0 && buildingNumber.containsKey(recipe.buildingId)) {
@@ -68,6 +71,23 @@ class BaseServiceImpl @Autowired constructor(
         materials.addAll(calculator.calculateProduction(recipe, efficiency).mapValues { it.value * factor }.entries)
       }
     }
+    // also add the resource extraction
+    for ((material, amount) in base.extraction) {
+      val planetaryResource = planet.resources[material]
+      if (planetaryResource != null) {
+        val buildingId = when (planetaryResource.form) {
+          PlanetaryResource.Form.ATMOSPHERIC -> "COL"
+          PlanetaryResource.Form.LIQUID -> "RIG"
+          PlanetaryResource.Form.MINERAL -> "EXT"
+        }
+        val efficiency = buildingEfficiencies[buildingId]
+        if (efficiency != null && efficiency > 0 && buildingNumber.containsKey(buildingId)) {
+          val factor = buildingNumber[buildingId]!! * amount
+          materials.addAll(mapOf(material to (calculator.calculateExtraction(planetaryResource, efficiency) * factor)).entries)
+        }
+      }
+    }
+
     return materials.groupBy { it.key }.mapValues { MathUtil.round(it.value.sumByDouble { entry -> entry.value }, 2) }
   }
 

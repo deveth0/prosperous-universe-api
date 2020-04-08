@@ -15,13 +15,21 @@ import org.springframework.stereotype.Service
 
 @Service
 @EnableConfigurationProperties(FilesProperties::class)
-open class BuildingsService @Autowired constructor(filesProperties: FilesProperties, objectMapper: ObjectMapper, private val recipeService: RecipeService) {
+open class BuildingsService
+@Autowired constructor(filesProperties: FilesProperties,
+                       objectMapper: ObjectMapper,
+                       private val recipeService: RecipeService) {
 
-  val buildings: Map<String, Building>
+  private val buildings: Map<String, Building>
 
   init {
     val parser = BuildingsParser(filesProperties.buildings, objectMapper)
     buildings = parser.buildings
+  }
+
+  @Cacheable("buildings")
+  open fun getBuildings(): Map<String, Building> {
+    return buildings
   }
 
   @Cacheable("building")

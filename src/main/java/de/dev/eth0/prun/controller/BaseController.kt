@@ -24,7 +24,7 @@ class BaseController @Autowired constructor(
   @ApiOperation("Retrieve information which buildings are available for a base")
   @GetMapping("/buildings")
   fun getBuildings(): Map<String, Building> {
-    return buildingsService.buildings
+    return buildingsService.getBuildings()
   }
 
   @ApiOperation("Retrieve information on the building")
