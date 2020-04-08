@@ -7,6 +7,7 @@ package de.dev.eth0.prun.impl.service.planets.model
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
+import de.dev.eth0.prun.impl.model.Planet
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class CSVPlanet @JsonCreator constructor(
@@ -19,12 +20,9 @@ data class CSVPlanet @JsonCreator constructor(
     @JsonProperty("pressure") val pressure: Double,
     @JsonProperty("temperature") val temperature: Double,
     @JsonProperty("type") val type: String,
-    @JsonProperty("low grav") val lowGravity: Boolean,
-    @JsonProperty("high grav") val highGravity: Boolean,
-    @JsonProperty("low pres") val lowPressure: Boolean,
-    @JsonProperty("high pres") val highPressure: Boolean,
-    @JsonProperty("low temp") val lowTemperature: Boolean,
-    @JsonProperty("high temp") val highTemperature: Boolean,
+    @JsonProperty("Grav") val grav: Planet.Level,
+    @JsonProperty("Pres") val pres: Planet.Level,
+    @JsonProperty("Temp") val temp: Planet.Level,
     @JsonProperty("tier") val tier: Int
 
 )

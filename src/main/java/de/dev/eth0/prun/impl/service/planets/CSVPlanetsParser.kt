@@ -47,9 +47,9 @@ class CSVPlanetsParser constructor(planetsFile: String, planetaryResourcesFile: 
         csvPlanet.pressure,
         csvPlanet.temperature,
         Planet.Type.valueOf(csvPlanet.type.toUpperCase()),
-        if (csvPlanet.highGravity) Planet.Level.HIGH else if (csvPlanet.lowGravity) Planet.Level.LOW else Planet.Level.NORMAL,
-        if (csvPlanet.highPressure) Planet.Level.HIGH else if (csvPlanet.lowPressure) Planet.Level.LOW else Planet.Level.NORMAL,
-        if (csvPlanet.highTemperature) Planet.Level.HIGH else if (csvPlanet.lowTemperature) Planet.Level.LOW else Planet.Level.NORMAL,
+        csvPlanet.grav,
+        csvPlanet.pres,
+        csvPlanet.temp,
         csvPlanet.tier,
         resources
     )
