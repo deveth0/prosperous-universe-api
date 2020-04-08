@@ -13,6 +13,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
  */
 data class PopulationConsumption @JsonCreator constructor(
     @JsonProperty("ticker") val ticker: String,
-    @JsonProperty("amount") val amount: Float,
+    @JsonProperty("amount") val amount: Double,
     @JsonProperty("essential") val essential: Boolean
 )

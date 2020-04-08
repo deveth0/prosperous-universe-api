@@ -36,7 +36,15 @@ class BaseServiceImpl @Autowired constructor(
     val buildingEfficiencies = getBuildingEfficiencies(base, population, planet)
 
     val materials = getMaterials(base, buildingEfficiencies)
-    return BaseCalculation(area, population, consumables, buildingEfficiencies, materials)
+    val materialsConsumables = consumables.values.map { it.map { mat -> mat.ticker to mat.amount } }.flatten()
+        .groupBy { it.first }
+        .mapValues { -1 * MathUtil.round(it.value.sumByDouble { entry -> entry.second }, 2) }
+
+    val mergedMaterials = (materials.asSequence() + materialsConsumables.asSequence())
+        .distinct().groupBy({ it.key }, { it.value })
+        .mapValues { (_, values) -> values.sum() }
+
+    return BaseCalculation(area, population, consumables, buildingEfficiencies, mergedMaterials)
   }
 
   private fun getBuildingEfficiencies(base: Base, population: Map<PopulationLevel, Population>, planet: Planet): Map<String, Double> {
