@@ -12,7 +12,13 @@ import de.dev.eth0.prun.service.BaseService
 import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping(path = ["/base"], produces = [MediaType.APPLICATION_JSON_VALUE])
@@ -33,10 +39,15 @@ class BaseController @Autowired constructor(
     return buildingsService.getBuilding(buildingId)
   }
 
+  @ApiOperation("Open a base")
+  @GetMapping
+  fun getBaseCalculation(@RequestParam("id") deeplink: String): BaseCalculation? {
+    return baseService.restoreBase(deeplink)
+  }
+
   @ApiOperation("Calculate the Base Facts")
   @PostMapping
   fun getBaseCalculation(@RequestBody base: Base): BaseCalculation {
     return baseService.calculate(base)
   }
-
 }

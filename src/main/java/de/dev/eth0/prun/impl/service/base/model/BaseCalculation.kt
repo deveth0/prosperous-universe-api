@@ -11,20 +11,22 @@ import io.swagger.annotations.ApiModelProperty
 
 @ApiModel(value = "BaseCalculation", description = "Calculation on a base")
 data class BaseCalculation @JsonCreator constructor(
-    @ApiModelProperty(value = "Used area")
-    @JsonProperty("area") val area: Int,
+  @ApiModelProperty(value = "Used area")
+  @JsonProperty("area") val area: Int,
 
-    @ApiModelProperty(value = "Population of the base")
-    @JsonProperty("population") val population: Map<PopulationLevel, Population>,
+  @ApiModelProperty(value = "Population of the base")
+  @JsonProperty("population") val population: Map<PopulationLevel, Population>,
 
-    @ApiModelProperty(value = "Consumption of the base")
-    @JsonProperty("consumption") val consumption: Map<PopulationLevel, List<PopulationConsumption>>,
+  @ApiModelProperty(value = "Consumption of the base")
+  @JsonProperty("consumption") val consumption: Map<PopulationLevel, List<PopulationConsumption>>,
 
-    @ApiModelProperty("Efficiencies of the buildings")
-    @JsonProperty("efficiency") val efficiency: Map<String, Double>,
+  @ApiModelProperty("Efficiencies of the buildings")
+  @JsonProperty("efficiency") val efficiency: Map<String, Double>,
 
-    @ApiModelProperty("Material input/output of the base")
-    @JsonProperty("materials") val materials: Map<String, Double>
+  @ApiModelProperty("Material input/output of the base")
+  @JsonProperty("materials") val materials: Map<String, Double>,
 
+  @ApiModelProperty("Id of the base, can be used to load it")
+  @JsonProperty("id") val id: String
 
 )

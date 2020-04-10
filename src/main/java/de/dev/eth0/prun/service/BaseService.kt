@@ -15,4 +15,6 @@ interface BaseService {
    * Calculate the facts for the given base
    */
   fun calculate(base: Base): BaseCalculation
+
+  fun restoreBase(deeplink: String): BaseCalculation?
 }

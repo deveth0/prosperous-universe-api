@@ -7,9 +7,14 @@ package de.dev.eth0.prun.impl.service.base
 import de.dev.eth0.prun.impl.model.Building
 import de.dev.eth0.prun.impl.model.Planet
 import de.dev.eth0.prun.impl.model.PlanetaryResource
-import de.dev.eth0.prun.impl.service.base.model.*
+import de.dev.eth0.prun.impl.service.base.model.Base
+import de.dev.eth0.prun.impl.service.base.model.BaseCalculation
+import de.dev.eth0.prun.impl.service.base.model.BaseConsumptionSetting
+import de.dev.eth0.prun.impl.service.base.model.Population
+import de.dev.eth0.prun.impl.service.base.model.PopulationLevel
 import de.dev.eth0.prun.impl.util.MathUtil
 import de.dev.eth0.prun.service.BaseService
+import de.dev.eth0.prun.service.DeeplinkService
 import de.dev.eth0.prun.service.PlanetsService
 import de.dev.eth0.prun.service.RecipeService
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,17 +23,23 @@ import kotlin.math.abs
 
 @Service
 class BaseServiceImpl @Autowired constructor(
-    private val buildingsService: BuildingsService,
-    private val recipeService: RecipeService,
-    private val planetsService: PlanetsService,
-    private val consumptionService: ConsumptionService) : BaseService {
+  private val buildingsService: BuildingsService,
+  private val recipeService: RecipeService,
+  private val planetsService: PlanetsService,
+  private val consumptionService: ConsumptionService,
+  private val deeplinkService: DeeplinkService
+) : BaseService {
+
+  override fun restoreBase(deeplink: String): BaseCalculation? {
+    val base = deeplinkService.resolveDeeplink(deeplink)
+    return calculate(base)
+  }
 
   override fun calculate(base: Base): BaseCalculation {
     val planet = planetsService.getPlanet(base.planet) ?: throw Exception("invalid planet")
 
     val buildings = base.buildings.mapNotNull { buildingsService.getBuilding(it) }
     val area = buildings.sumBy { it.area }
-
 
     val population = getPopulation(buildings, base.consumption)
 
@@ -45,7 +56,7 @@ class BaseServiceImpl @Autowired constructor(
         .distinct().groupBy({ it.key }, { it.value })
         .mapValues { (_, values) -> values.sum() }
 
-    return BaseCalculation(area, population, consumables, buildingEfficiencies, mergedMaterials)
+    return BaseCalculation(area, population, consumables, buildingEfficiencies, mergedMaterials, deeplinkService.createDeeplink(base))
   }
 
   private fun getBuildingEfficiencies(base: Base, population: Map<PopulationLevel, Population>, planet: Planet): Map<String, Double> {
