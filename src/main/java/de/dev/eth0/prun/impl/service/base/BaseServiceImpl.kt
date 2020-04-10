@@ -10,10 +10,11 @@ import de.dev.eth0.prun.impl.model.PlanetaryResource
 import de.dev.eth0.prun.impl.service.base.model.Base
 import de.dev.eth0.prun.impl.service.base.model.BaseCalculation
 import de.dev.eth0.prun.impl.service.base.model.BaseConsumptionSetting
+import de.dev.eth0.prun.impl.service.base.model.BaseMaterials
 import de.dev.eth0.prun.impl.service.base.model.Population
+import de.dev.eth0.prun.impl.service.base.model.PopulationConsumption
 import de.dev.eth0.prun.impl.service.base.model.PopulationLevel
 import de.dev.eth0.prun.impl.service.base.model.RestoredBase
-import de.dev.eth0.prun.impl.util.MathUtil
 import de.dev.eth0.prun.service.BaseService
 import de.dev.eth0.prun.service.DeeplinkService
 import de.dev.eth0.prun.service.PlanetsService
@@ -49,39 +50,37 @@ class BaseServiceImpl @Autowired constructor(
 
     val buildingEfficiencies = getBuildingEfficiencies(base, population, planet)
 
-    val materials = getMaterials(base, planet, buildingEfficiencies)
-    val materialsConsumables = consumables.values.map { it.map { mat -> mat.ticker to mat.amount } }.flatten()
-        .groupBy { it.first }
-        .mapValues { -1 * MathUtil.round(it.value.sumByDouble { entry -> entry.second }, 2) }
+    val materials = getMaterials(base, planet, buildingEfficiencies, consumables)
 
-    val mergedMaterials = (materials.asSequence() + materialsConsumables.asSequence())
-        .distinct().groupBy({ it.key }, { it.value })
-        .mapValues { (_, values) -> values.sum() }
-
-    return BaseCalculation(area, population, consumables, buildingEfficiencies, mergedMaterials, deeplinkService.createDeeplink(base))
+    return BaseCalculation(area, population, consumables, buildingEfficiencies, materials, deeplinkService.createDeeplink(base))
   }
 
   private fun getBuildingEfficiencies(base: Base, population: Map<PopulationLevel, Population>, planet: Planet): Map<String, Double> {
     val efficiencyCalculator = BuildingEfficiencyCalculator()
     return base.buildings
-        .mapNotNull { buildingId -> buildingsService.getBuilding(buildingId).let { it } }
-        .map { building -> building.id to efficiencyCalculator.calculateEfficiency(building, base, population, planet) }.toMap()
+      .mapNotNull { buildingId -> buildingsService.getBuilding(buildingId).let { it } }
+      .map { building -> building.id to efficiencyCalculator.calculateEfficiency(building, base, population, planet) }.toMap()
   }
 
-  private fun getMaterials(base: Base, planet: Planet, buildingEfficiencies: Map<String, Double>): Map<String, Double> {
+  private fun getMaterials(
+    base: Base,
+    planet: Planet,
+    buildingEfficiencies: Map<String, Double>,
+    consumables: Map<PopulationLevel, List<PopulationConsumption>>
+  ): BaseMaterials {
     //TODO: throw exception on invalid recipes
     val recipes = base.recipes.mapNotNull { r -> recipeService.getRecipe(r.key)?.let { Pair(it, r.value) } }.toMap()
     val buildingNumber = base.buildings.groupingBy { it }.eachCount()
 
     val calculator = ProductionCalculator()
-    val materials = mutableListOf<Map.Entry<String, Double>>()
+    val materials = BaseMaterials()
 
     // production recipes
     for ((recipe, amount) in recipes) {
       val efficiency = buildingEfficiencies[recipe.buildingId]
       if (efficiency != null && efficiency > 0 && buildingNumber.containsKey(recipe.buildingId)) {
         val factor = buildingNumber[recipe.buildingId]!! * amount
-        materials.addAll(calculator.calculateProduction(recipe, efficiency).mapValues { it.value * factor }.entries)
+        materials.add(BaseMaterials.multiply(calculator.calculateProduction(recipe, efficiency), factor))
       }
     }
     // also add the resource extraction
@@ -96,12 +95,15 @@ class BaseServiceImpl @Autowired constructor(
         val efficiency = buildingEfficiencies[buildingId]
         if (efficiency != null && efficiency > 0 && buildingNumber.containsKey(buildingId)) {
           val factor = buildingNumber[buildingId]!! * amount
-          materials.addAll(mapOf(material to (calculator.calculateExtraction(planetaryResource, efficiency) * factor)).entries)
+          materials.add(BaseMaterials.multiply(calculator.calculateExtraction(planetaryResource, efficiency), factor))
         }
       }
     }
-
-    return materials.groupBy { it.key }.mapValues { MathUtil.round(it.value.sumByDouble { entry -> entry.value }, 2) }
+    // add the consumables of the population
+    for ((_, consume) in consumables) {
+      materials.add(BaseMaterials(input = consume.map { it.ticker to it.amount }.toMap().toMutableMap()))
+    }
+    return materials
   }
 
   private fun getPopulation(buildings: List<Building>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Map<PopulationLevel, Population> {

@@ -24,7 +24,7 @@ data class BaseCalculation @JsonCreator constructor(
   @JsonProperty("efficiency") val efficiency: Map<String, Double>,
 
   @ApiModelProperty("Material input/output of the base")
-  @JsonProperty("materials") val materials: Map<String, Double>,
+  @JsonProperty("materials") val materials: BaseMaterials,
 
   @ApiModelProperty("Id of the base, can be used to load it")
   @JsonProperty("id") val id: String
