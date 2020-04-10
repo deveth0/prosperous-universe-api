@@ -59,6 +59,7 @@ class BaseServiceImpl @Autowired constructor(
     val efficiencyCalculator = BuildingEfficiencyCalculator()
     return base.buildings
       .mapNotNull { buildingId -> buildingsService.getBuilding(buildingId).let { it } }
+      .filter { it.expertise != null }
       .map { building -> building.id to efficiencyCalculator.calculateEfficiency(building, base, population, planet) }.toMap()
   }
 
