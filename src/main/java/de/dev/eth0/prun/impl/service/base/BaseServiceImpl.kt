@@ -12,6 +12,7 @@ import de.dev.eth0.prun.impl.service.base.model.BaseCalculation
 import de.dev.eth0.prun.impl.service.base.model.BaseConsumptionSetting
 import de.dev.eth0.prun.impl.service.base.model.Population
 import de.dev.eth0.prun.impl.service.base.model.PopulationLevel
+import de.dev.eth0.prun.impl.service.base.model.RestoredBase
 import de.dev.eth0.prun.impl.util.MathUtil
 import de.dev.eth0.prun.service.BaseService
 import de.dev.eth0.prun.service.DeeplinkService
@@ -30,9 +31,10 @@ class BaseServiceImpl @Autowired constructor(
   private val deeplinkService: DeeplinkService
 ) : BaseService {
 
-  override fun restoreBase(deeplink: String): BaseCalculation? {
+  override fun restoreBase(deeplink: String): RestoredBase? {
     val base = deeplinkService.resolveDeeplink(deeplink)
-    return calculate(base)
+
+    return RestoredBase(base, calculate(base))
   }
 
   override fun calculate(base: Base): BaseCalculation {

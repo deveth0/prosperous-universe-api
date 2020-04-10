@@ -8,6 +8,7 @@ import de.dev.eth0.prun.impl.model.Building
 import de.dev.eth0.prun.impl.service.base.BuildingsService
 import de.dev.eth0.prun.impl.service.base.model.Base
 import de.dev.eth0.prun.impl.service.base.model.BaseCalculation
+import de.dev.eth0.prun.impl.service.base.model.RestoredBase
 import de.dev.eth0.prun.service.BaseService
 import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
@@ -41,7 +42,7 @@ class BaseController @Autowired constructor(
 
   @ApiOperation("Open a base")
   @GetMapping
-  fun getBaseCalculation(@RequestParam("id") deeplink: String): BaseCalculation? {
+  fun getBaseCalculation(@RequestParam("id") deeplink: String): RestoredBase? {
     return baseService.restoreBase(deeplink)
   }
 

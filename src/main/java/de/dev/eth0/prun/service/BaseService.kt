@@ -6,6 +6,7 @@ package de.dev.eth0.prun.service
 
 import de.dev.eth0.prun.impl.service.base.model.Base
 import de.dev.eth0.prun.impl.service.base.model.BaseCalculation
+import de.dev.eth0.prun.impl.service.base.model.RestoredBase
 
 /**
  * Service for everything base related
@@ -16,5 +17,5 @@ interface BaseService {
    */
   fun calculate(base: Base): BaseCalculation
 
-  fun restoreBase(deeplink: String): BaseCalculation?
+  fun restoreBase(deeplink: String): RestoredBase?
 }
