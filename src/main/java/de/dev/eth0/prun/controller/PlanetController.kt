@@ -10,7 +10,11 @@ import de.dev.eth0.prun.service.PlanetsService
 import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping(path = [PLANETS_PATH], produces = [MediaType.APPLICATION_JSON_VALUE])
@@ -32,9 +36,12 @@ class PlanetController @Autowired constructor(val planetsService: PlanetsService
     return planetsService.getPlanet(planetId)
   }
 
-  @ApiOperation("Search for all planets with the requested resources")
+  @ApiOperation("Search for all planets with the requested parameters")
   @GetMapping(path = [PLANETS_SEARCH_PATH])
-  fun search(@RequestParam("resource") resources: List<String>): Map<String, Planet> {
-    return planetsService.searchPlanets(resources).map { it.id to it }.toMap()
+  fun search(
+    @RequestParam("resource", required = false) resources: List<String>?,
+    @RequestParam("fertile", required = false) fertile: Boolean?
+  ): Map<String, Planet> {
+    return planetsService.searchPlanets(resources ?: listOf(), fertile ?: false).map { it.id to it }.toMap()
   }
 }

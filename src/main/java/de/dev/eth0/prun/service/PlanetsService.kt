@@ -22,7 +22,8 @@ interface PlanetsService {
   fun getPlanet(planetId: String): Planet?
 
   /**
-   * Return a list of Planets that contain all of the requested resources
+   * Return a list of Planets that matches the given parameters
+   *
    */
-  fun searchPlanets(resources: List<String>): Set<Planet>
+  fun searchPlanets(resources: List<String>, fertileOnly: Boolean): Set<Planet>
 }
