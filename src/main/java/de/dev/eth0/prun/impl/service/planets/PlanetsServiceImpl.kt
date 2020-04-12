@@ -43,15 +43,22 @@ open class PlanetsServiceImpl @Autowired constructor(filesProperties: FilesPrope
   }
 
   @Cacheable("searchPlanets")
-  override fun searchPlanets(resources: List<String>): Set<Planet> {
+  override fun searchPlanets(resources: List<String>, fertileOnly: Boolean): Set<Planet> {
     logger.debug("searchPlanets($resources)")
     var results = mutableSetOf<Planet>()
-    for (resource in resources) {
-      if (results.isEmpty()) {
-        results.addAll(planetaryResources[resource] ?: listOf())
-      } else {
-        results = results.intersect(planetaryResources[resource] ?: listOf()).toMutableSet()
+    if (resources.isEmpty()) {
+      results.addAll(getPlanets().values)
+    } else {
+      for (resource in resources) {
+        if (results.isEmpty()) {
+          results.addAll(planetaryResources[resource] ?: listOf())
+        } else {
+          results = results.intersect(planetaryResources[resource] ?: listOf()).toMutableSet()
+        }
       }
+    }
+    if (fertileOnly) {
+      results.removeIf { it.fertility == -1.0 }
     }
     return results
   }
