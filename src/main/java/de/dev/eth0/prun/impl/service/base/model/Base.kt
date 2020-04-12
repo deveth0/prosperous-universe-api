@@ -17,7 +17,7 @@ data class Base @JsonCreator constructor(
     @JsonProperty("planet") val planet: String,
 
     @ApiModelProperty(value = "Buildings in this base")
-    @JsonProperty("buildings") val buildings: List<String>,
+    @JsonProperty("buildings") val buildings: Map<String, Int>,
 
     @ApiModelProperty("Extraction of materials")
     @JsonProperty("extraction") val extraction: Map<String, Double> = mapOf(),

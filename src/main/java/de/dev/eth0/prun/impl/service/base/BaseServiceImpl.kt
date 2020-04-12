@@ -41,8 +41,8 @@ class BaseServiceImpl @Autowired constructor(
   override fun calculate(base: Base): BaseCalculation {
     val planet = planetsService.getPlanet(base.planet) ?: throw Exception("invalid planet")
 
-    val buildings = base.buildings.mapNotNull { buildingsService.getBuilding(it) }
-    val area = buildings.sumBy { it.area }
+    val buildings = base.buildings.mapKeys { (k, v) -> buildingsService.getBuilding(k).let { it } }.filterKeys { it != null } as Map<Building, Int>
+    val area = buildings.keys.sumBy { it.area }
 
     val population = getPopulation(buildings, base.consumption)
 
@@ -58,7 +58,7 @@ class BaseServiceImpl @Autowired constructor(
   private fun getBuildingEfficiencies(base: Base, population: Map<PopulationLevel, Population>, planet: Planet): Map<String, Double> {
     val efficiencyCalculator = BuildingEfficiencyCalculator()
     return base.buildings
-      .mapNotNull { buildingId -> buildingsService.getBuilding(buildingId).let { it } }
+      .mapNotNull { (k, v) -> buildingsService.getBuilding(k).let { it } }
       .filter { it.expertise != null }
       .map { building -> building.id to efficiencyCalculator.calculateEfficiency(building, base, population, planet) }.toMap()
   }
@@ -71,7 +71,7 @@ class BaseServiceImpl @Autowired constructor(
   ): BaseMaterials {
     //TODO: throw exception on invalid recipes
     val recipes = base.recipes.mapNotNull { r -> recipeService.getRecipe(r.key)?.let { Pair(it, r.value) } }.toMap()
-    val buildingNumber = base.buildings.groupingBy { it }.eachCount()
+    val buildingNumber = base.buildings
 
     val calculator = ProductionCalculator()
     val materials = BaseMaterials()
@@ -107,58 +107,57 @@ class BaseServiceImpl @Autowired constructor(
     return materials
   }
 
-  private fun getPopulation(buildings: List<Building>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Map<PopulationLevel, Population> {
+  private fun getPopulation(
+    buildings: Map<Building, Int>,
+    consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>
+  ): Map<PopulationLevel, Population> {
     val pioneers = getPioneerPopulationEntry(buildings, consumptionSettings)
     val settlers = getSettlerPopulationEntry(buildings, consumptionSettings)
     val technicians = getTechnicianPopulationEntry(buildings, consumptionSettings)
     val engineers = getEngineerPopulationEntry(buildings, consumptionSettings)
     val scientists = getScientistsPopulationEntry(buildings, consumptionSettings)
-    return mapOf(PopulationLevel.PIONEERS to pioneers,
-        PopulationLevel.SETTLERS to settlers,
-        PopulationLevel.TECHNICIANS to technicians,
-        PopulationLevel.ENGINEERS to engineers,
-        PopulationLevel.SCIENTISTS to scientists
+    return mapOf(
+      PopulationLevel.PIONEERS to pioneers,
+      PopulationLevel.SETTLERS to settlers,
+      PopulationLevel.TECHNICIANS to technicians,
+      PopulationLevel.ENGINEERS to engineers,
+      PopulationLevel.SCIENTISTS to scientists
     ).filterValues { it.required != 0 || it.capacity != 0 }
   }
 
-  private fun getPioneerPopulationEntry(buildings: List<Building>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Population {
-    val filteredBuildings = buildings.filter { it.pioneers != null }
-    val consumptionSetting = consumptionSettings.getOrDefault(PopulationLevel.PIONEERS, BaseConsumptionSetting(false, false))
-    val required = filteredBuildings.filter { it.pioneers!! > 0 }.sumBy { it.pioneers!! }
-    val available = abs(filteredBuildings.filter { it.pioneers!! < 0 }.sumBy { it.pioneers!! })
-    return Population(required, available, consumptionSetting.luxury1, consumptionSetting.luxury2)
+  private fun getPioneerPopulationEntry(buildings: Map<Building, Int>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Population {
+    val filteredBuildings = buildings.filter { it.key.pioneers != null }.mapKeys { it.key.pioneers }
+    return getPopulationEntry(filteredBuildings as Map<Int, Int>, PopulationLevel.PIONEERS, consumptionSettings)
   }
 
-  private fun getSettlerPopulationEntry(buildings: List<Building>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Population {
-    val filteredBuildings = buildings.filter { it.settlers != null }
-    val consumptionSetting = consumptionSettings.getOrDefault(PopulationLevel.SETTLERS, BaseConsumptionSetting(false, false))
-    val required = filteredBuildings.filter { it.settlers!! > 0 }.sumBy { it.settlers!! }
-    val available = abs(filteredBuildings.filter { it.settlers!! < 0 }.sumBy { it.settlers!! })
-    return Population(required, available, consumptionSetting.luxury1, consumptionSetting.luxury2)
+  private fun getSettlerPopulationEntry(buildings: Map<Building, Int>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Population {
+    val filteredBuildings = buildings.filter { it.key.settlers != null }.mapKeys { it.key.settlers }
+    return getPopulationEntry(filteredBuildings as Map<Int, Int>, PopulationLevel.SETTLERS, consumptionSettings)
   }
 
-  private fun getTechnicianPopulationEntry(buildings: List<Building>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Population {
-    val filteredBuildings = buildings.filter { it.technicians != null }
-    val consumptionSetting = consumptionSettings.getOrDefault(PopulationLevel.TECHNICIANS, BaseConsumptionSetting(false, false))
-    val required = filteredBuildings.filter { it.technicians!! > 0 }.sumBy { it.technicians!! }
-    val available = abs(filteredBuildings.filter { it.technicians!! < 0 }.sumBy { it.technicians!! })
-    return Population(required, available, consumptionSetting.luxury1, consumptionSetting.luxury2)
+  private fun getTechnicianPopulationEntry(buildings: Map<Building, Int>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Population {
+    val filteredBuildings = buildings.filter { it.key.technicians != null }.mapKeys { it.key.technicians }
+    return getPopulationEntry(filteredBuildings as Map<Int, Int>, PopulationLevel.TECHNICIANS, consumptionSettings)
   }
 
-  private fun getEngineerPopulationEntry(buildings: List<Building>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Population {
-    val filteredBuildings = buildings.filter { it.engineers != null }
-    val consumptionSetting = consumptionSettings.getOrDefault(PopulationLevel.ENGINEERS, BaseConsumptionSetting(false, false))
-    val required = filteredBuildings.filter { it.engineers!! > 0 }.sumBy { it.engineers!! }
-    val available = abs(filteredBuildings.filter { it.engineers!! < 0 }.sumBy { it.engineers!! })
-    return Population(required, available, consumptionSetting.luxury1, consumptionSetting.luxury2)
+  private fun getEngineerPopulationEntry(buildings: Map<Building, Int>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Population {
+    val filteredBuildings = buildings.filter { it.key.engineers != null }.mapKeys { it.key.engineers }
+    return getPopulationEntry(filteredBuildings as Map<Int, Int>, PopulationLevel.ENGINEERS, consumptionSettings)
   }
 
-  private fun getScientistsPopulationEntry(buildings: List<Building>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Population {
-    val filteredBuildings = buildings.filter { it.scientists != null }
-    val consumptionSetting = consumptionSettings.getOrDefault(PopulationLevel.SCIENTISTS, BaseConsumptionSetting(false, false))
-    val required = filteredBuildings.filter { it.scientists!! > 0 }.sumBy { it.scientists!! }
-    val available = abs(filteredBuildings.filter { it.scientists!! < 0 }.sumBy { it.scientists!! })
-    return Population(required, available, consumptionSetting.luxury1, consumptionSetting.luxury2)
+  private fun getScientistsPopulationEntry(buildings: Map<Building, Int>, consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>): Population {
+    val filteredBuildings = buildings.filter { it.key.scientists != null }.mapKeys { it.key.scientists }
+    return getPopulationEntry(filteredBuildings as Map<Int, Int>, PopulationLevel.SCIENTISTS, consumptionSettings)
   }
 
+  private fun getPopulationEntry(
+    buildings: Map<Int, Int>,
+    populationLevel: PopulationLevel,
+    consumptionSettings: Map<PopulationLevel, BaseConsumptionSetting>
+  ): Population {
+    val consumptionSetting = consumptionSettings.getOrDefault(populationLevel, BaseConsumptionSetting(false, false))
+    val required = buildings.filter { it.key > 0 }.entries.sumBy { it.key * it.value }
+    val available = abs(buildings.filter { it.key < 0 }.entries.sumBy { it.key * it.value })
+    return Population(required, available, consumptionSetting.luxury1, consumptionSetting.luxury2)
+  }
 }
