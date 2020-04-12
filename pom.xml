@@ -22,6 +22,9 @@
 
   <properties>
     <java.version>11</java.version>
+
+    <frontend.dir>${project.basedir}/src/main/frontend</frontend.dir>
+
     <docker.image.repository>deveth0</docker.image.repository>
     <docker.image.prefix>prun</docker.image.prefix>
 
@@ -221,6 +224,87 @@
         <configuration>
           <jvmTarget>11</jvmTarget>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <configuration>
+          <nodeVersion>v12.16.2</nodeVersion>
+        </configuration>
+        <executions>
+          <!-- make sure node and npm are installed -->
+          <execution>
+            <id>install node and npm (app)</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <configuration>
+              <workingDirectory>${frontend.dir}</workingDirectory>
+            </configuration>
+          </execution>
+          <!-- install all dependencies -->
+          <execution>
+            <id>npm install (app)</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <workingDirectory>${frontend.dir}</workingDirectory>
+              <arguments>install --no-save</arguments>
+            </configuration>
+          </execution>
+          <!-- Build -->
+          <execution>
+            <id>npm run prod</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <workingDirectory>${frontend.dir}</workingDirectory>
+              <arguments>run prod</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <!-- JS -->
+          <execution>
+            <id>copy-resources (JS)</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.outputDirectory}/static/js</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${frontend.dir}/target/js</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <!-- JS -->
+          <execution>
+            <id>copy-resources (CSS)</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.outputDirectory}/static/css</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${frontend.dir}/target/css</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
 
     </plugins>

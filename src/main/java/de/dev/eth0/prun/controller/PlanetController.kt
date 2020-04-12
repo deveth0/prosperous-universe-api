@@ -4,6 +4,7 @@
 
 package de.dev.eth0.prun.controller
 
+import de.dev.eth0.prun.controller.PlanetController.Companion.PLANETS_PATH
 import de.dev.eth0.prun.impl.model.Planet
 import de.dev.eth0.prun.service.PlanetsService
 import io.swagger.annotations.ApiOperation
@@ -12,8 +13,12 @@ import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping(path = ["/planets"], produces = [MediaType.APPLICATION_JSON_VALUE])
+@RequestMapping(path = [PLANETS_PATH], produces = [MediaType.APPLICATION_JSON_VALUE])
 class PlanetController @Autowired constructor(val planetsService: PlanetsService) {
+  companion object {
+    const val PLANETS_PATH = "/planets"
+    const val PLANETS_SEARCH_PATH = "/search"
+  }
 
   @ApiOperation("Get all planets")
   @GetMapping
@@ -28,7 +33,7 @@ class PlanetController @Autowired constructor(val planetsService: PlanetsService
   }
 
   @ApiOperation("Search for all planets with the requested resources")
-  @GetMapping(path = ["/search"])
+  @GetMapping(path = [PLANETS_SEARCH_PATH])
   fun search(@RequestParam("resource") resources: List<String>): Map<String, Planet> {
     return planetsService.searchPlanets(resources).map { it.id to it }.toMap()
   }
