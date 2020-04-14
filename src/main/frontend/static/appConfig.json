@@ -1,4 +1,5 @@
 {
   "planets": "/planets.json",
-  "planetSearch": "/planets/search"
+  "planetSearch": "/planets/search",
+  "buildings": "/buildings.json"
 }

@@ -2,14 +2,14 @@
  * Copyright (c) 2020.  dev-eth0.de All rights reserved.
  */
 
-import CssBaseline from "@material-ui/core/CssBaseline";
+import {Container, CssBaseline} from "@material-ui/core";
+import {Alert} from "@material-ui/lab";
 import React from "react";
-import { HashRouter } from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 
-import { AppConfig } from "../js/model/AppConfig";
-import { AppConfigReader } from "../js/appConfigReader";
-import { LoadingInfo } from "./loadingInfo/LoadingInfo";
-import { Routes } from "./Routes";
+import {AppConfig} from "../js/model/AppConfig";
+import {AppConfigReader} from "../js/appConfigReader";
+import {Routes} from "./Routes";
 
 export const AppContext = React.createContext<AppConfig>({} as AppConfig);
 
@@ -31,11 +31,13 @@ export function App(props: AppProps): JSX.Element {
   if (appConfig) {
     return <AppContext.Provider value={appConfig}>
       <CssBaseline/>
-      <HashRouter>
-        <Routes/>
-      </HashRouter>
+      <Container>
+        <HashRouter>
+          <Routes/>
+        </HashRouter>
+      </Container>
     </AppContext.Provider>;
   }
-  return <LoadingInfo isLoading={true} isError={false}/>;
+  return <Alert severity={"info"}>Loading</Alert>;
 
 }

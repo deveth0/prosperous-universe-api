@@ -14,5 +14,10 @@ export interface AppConfig {
    */
   planetSearch: string;
 
+  /**
+   * Url where buildings can be found
+   */
+  buildings: string;
+
 
 }

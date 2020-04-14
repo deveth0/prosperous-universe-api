@@ -4,11 +4,11 @@
 
 import * as React from "react";
 import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel, Typography} from "@material-ui/core";
+import {Alert} from "@material-ui/lab";
 
 import {AppContext} from "../App";
 import {Planet} from "../../js/model/Planet";
 import {ApiLoader} from "../../js/apiLoader";
-import {LoadingInfo} from "../loadingInfo/LoadingInfo";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -61,7 +61,7 @@ export function PlanetTable(): JSX.Element {
     }
   }, []);
 
-  if (planets) {
+  if (planets.length > 0) {
 
     const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Planet) => {
       const isAsc = orderBy === property && order === "asc";
@@ -120,5 +120,5 @@ export function PlanetTable(): JSX.Element {
     );
   }
 
-  return <LoadingInfo isError={false} isLoading={true}/>;
+  return <Alert severity="info">Loading</Alert>;
 }
