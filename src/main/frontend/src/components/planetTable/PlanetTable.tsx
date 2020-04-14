@@ -57,7 +57,7 @@ export function PlanetTable(): JSX.Element {
     const data = planets.map(planet => (
       {
         name: `${planet.id} ${planet.name !== planet.id ? `(${planet.name})` : ""}`,
-        fertility: planet.fertility,
+        fertility: planet.fertility !== -1 ? `${Math.round(planet.fertility * 10000) / 100}%` : "",
         resources: Array.from(planet.resources.values()),
         tier: planet.tier,
         planetaryRequirements: planet.planetaryRequirements

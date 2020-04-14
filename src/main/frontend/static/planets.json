@@ -20765,7 +20765,7 @@
     "id": "XK-745a",
     "name": "XK-745a",
     "system": "XK-745",
-    "fertility": 1.0,
+    "fertility": -1.0,
     "gravity": 0.87,
     "plots": 368,
     "pressure": 2.72,

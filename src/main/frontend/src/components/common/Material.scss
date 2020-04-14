@@ -19,27 +19,29 @@
     font-weight: bold;
   }
 
-  &-inf {
-    color: rgb(151, 218, 255);
-    background: linear-gradient(135deg, rgb(24, 91, 211), rgb(49, 116, 236));
-  }
-
+  // Liquids
+  &-les,
+  &-bts,
   &-h2o {
     color: rgb(207, 168, 150);
     background: linear-gradient(135deg, rgb(80, 41, 23), rgb(105, 66, 48));
   }
 
+  // Construction Materials
+  &-inf,
   &-mcg,
   &-sea {
     color: rgb(151, 218, 255);
     background: linear-gradient(135deg, rgb(24, 91, 211), rgb(49, 116, 236));
   }
 
+  // Construction Prefabs
   &-hse {
     color: rgb(181, 181, 181);
     background: linear-gradient(135deg, rgb(54, 54, 54), rgb(79, 79, 79));
   }
 
+  // Construction Parts
   &-tsh,
   &-aef,
   &-mgc {
@@ -47,8 +49,52 @@
     background: linear-gradient(135deg, rgb(35, 30, 68), rgb(60, 55, 93));
   }
 
-  &-bl {
+  // Chemicals
+  &-bl,
+  &-flx {
     color: rgb(255, 173, 218);
     background: linear-gradient(135deg, rgb(183, 46, 91), rgb(208, 71, 116));
+  }
+
+  // Ores
+  &-alo,
+  &-cuo,
+  &-auo,
+  &-feo,
+  &-sio,
+  &-tio {
+    color: rgb(184, 222, 223);
+    background: linear-gradient(135deg, rgb(57, 95, 96), rgb(82, 120, 121));
+  }
+
+  // Gases
+  &-amm,
+  &-ar,
+  &-f,
+  &-he,
+  &-he3,
+  &-h,
+  &-ne,
+  &-n,
+  &-o {
+    color: rgb(194, 204, 214);
+    background: linear-gradient(135deg, rgb(67, 77, 87), rgb(92, 102, 112));
+  }
+
+  // Minerals
+  &-ber,
+  &-cli,
+  &-gal,
+  &-hal,
+  &-lst,
+  &-mg,
+  &-mag,
+  &-s,
+  &-tai,
+  &-tco,
+  &-ts,
+  &-zir {
+    color: rgb(200, 212, 224);
+    background: linear-gradient(135deg, rgb(73, 85, 97), rgb(98, 110, 122));
   }
 }

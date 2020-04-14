@@ -810,7 +810,7 @@ XK-632c,XK-632c,XK-632,-1,0.28,283,0.02,2709,-183,Rocky,false,false,false,false,
 XK-632d,XK-632d,XK-632,-1,1.05,429,0.71,7997,-201,Rocky,true,false,false,false,false,false,true,false,3,NORMAL,NORMAL,LOW,false
 XK-632e,XK-632e,XK-632,-1,1.53,548,104.23,12298,-200,Rocky,false,false,false,false,false,true,true,false,3,NORMAL,HIGH,LOW,false
 XK-632f,XK-632f,XK-632,-1,1.27,1037,25.03,69301,-198,Gaseous,true,false,false,false,false,true,true,false,3,NORMAL,HIGH,LOW,false
-XK-745a,XK-745a,XK-745,1,0.87,368,2.72,5791,63,Rocky,false,false,false,false,false,true,false,false,3,NORMAL,HIGH,NORMAL,false
+XK-745a,XK-745a,XK-745,-1,0.87,368,2.72,5791,63,Rocky,false,false,false,false,false,true,false,false,3,NORMAL,HIGH,NORMAL,false
 XK-745b,Katoa,XK-745,-0.16,0.97,772,0.83,6438,39,Rocky,false,false,false,false,false,false,false,false,1,NORMAL,NORMAL,NORMAL,false
 XK-745c,Umbra,XK-745,-1,1.03,394,1.32,6731,31,Rocky,false,false,false,false,false,false,false,false,1,NORMAL,NORMAL,NORMAL,false
 XK-745d,XK-745d,XK-745,-1,0.6,460,1.84,9101,-143,Rocky,false,false,false,false,false,false,true,false,3,NORMAL,NORMAL,LOW,false
