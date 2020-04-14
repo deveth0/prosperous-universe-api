@@ -4,11 +4,12 @@
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import React from "react";
+import { HashRouter } from "react-router-dom";
 
-import {AppConfig} from "../js/model/AppConfig";
-import {AppConfigReader} from "../js/appConfigReader";
-import {LoadingInfo} from "./loadingInfo/LoadingInfo";
-import {PlanetList} from "./planetList/PlanetTable";
+import { AppConfig } from "../js/model/AppConfig";
+import { AppConfigReader } from "../js/appConfigReader";
+import { LoadingInfo } from "./loadingInfo/LoadingInfo";
+import { Routes } from "./Routes";
 
 export const AppContext = React.createContext<AppConfig>({} as AppConfig);
 
@@ -30,7 +31,9 @@ export function App(props: AppProps): JSX.Element {
   if (appConfig) {
     return <AppContext.Provider value={appConfig}>
       <CssBaseline/>
-      <PlanetList/>
+      <HashRouter>
+        <Routes/>
+      </HashRouter>
     </AppContext.Provider>;
   }
   return <LoadingInfo isLoading={true} isError={false}/>;

@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping(path = ["/base"], produces = [MediaType.APPLICATION_JSON_VALUE])
+@RequestMapping(path = ["/api/v1/base"], produces = [MediaType.APPLICATION_JSON_VALUE])
 class BaseController @Autowired constructor(
     private val baseService: BaseService,
     private val buildingsService: BuildingsService

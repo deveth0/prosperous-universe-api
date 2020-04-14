@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping(path = [PLANETS_PATH], produces = [MediaType.APPLICATION_JSON_VALUE])
 class PlanetController @Autowired constructor(val planetsService: PlanetsService) {
   companion object {
-    const val PLANETS_PATH = "/planets"
+    const val PLANETS_PATH = "/api/v1/planets"
     const val PLANETS_SEARCH_PATH = "/search"
   }
 

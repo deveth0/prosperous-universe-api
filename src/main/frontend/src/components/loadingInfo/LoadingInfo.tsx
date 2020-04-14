@@ -19,7 +19,7 @@ export function LoadingInfo(props: LoadingInfoProps): JSX.Element {
 
   return (
     <div>
-      ${props.isError ? "ERROR!!" : "LOADING"}
+      {props.isError ? "ERROR!!" : "LOADING"}
     </div>
   );
 }

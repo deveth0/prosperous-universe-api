@@ -45,7 +45,7 @@ function stableSort<T>(array: T[], comparator: (a: T, b: T) => number) {
  * Display a list with all planets
  * @constructor
  */
-export function PlanetList(): JSX.Element {
+export function PlanetTable(): JSX.Element {
   const [planets, setAvailablePlanets] = React.useState<Planet[]>([]);
 
   const [order, setOrder] = React.useState<Order>("asc");

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
-@RequestMapping(path = ["/materials"], produces = [MediaType.APPLICATION_JSON_VALUE])
+@RequestMapping(path = ["/api/v1/materials"], produces = [MediaType.APPLICATION_JSON_VALUE])
 class MaterialController @Autowired constructor(val materialService: MaterialService) {
 
   @ApiOperation("Get all materials")
