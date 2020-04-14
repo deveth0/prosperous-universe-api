@@ -33,9 +33,15 @@ export function PlanetTable(): JSX.Element {
   const renderResources = (rowData: any) => <ul className={"pru-m-planetaryresources-list"}>
     {rowData.resources.map(
       (planetaryResource: PlanetaryResource) =>
-        <li key={planetaryResource.resourceId}>
+        <li key={planetaryResource.resourceId} className={"pru-m-planetaryresources-list-item"}>
           <Material name={planetaryResource.resourceId}/>
-          <span>({Math.round(planetaryResource.concentration * 10000) / 100}%, {planetaryResource.form})</span>
+          <div className={"pru-m-planetaryresources-list-item-desc"}>
+            <span>
+              Conc.: {Math.round(planetaryResource.concentration * 10000) / 100}%
+              ({Math.round(planetaryResource.concentration * (planetaryResource.form === "ATMOSPHERIC" ? 60 : 70) * 10) / 10}/ea)
+            </span>
+            <span>Form: {planetaryResource.form}</span>
+          </div>
         </li>
     )}
   </ul>;
@@ -48,11 +54,11 @@ export function PlanetTable(): JSX.Element {
 
   if (planets.length > 0) {
     const columns = [
-      {title: "Name", field: "name", filtering: false},
-      {title: "Fertility", field: "fertility", filtering: false},
-      {title: "Resources", field: "resources", render: renderResources, customFilterAndSearch: filterResources},
-      {title: "Tier", field: "tier"},
-      {title: "Planetary Requirements", field: "planetaryRequirements", render: renderPlanetaryRequirements},
+      {title: "Name", field: "name", filtering: false, cellStyle: {verticalAlign: "top", lineHeight: "36px"}},
+      {title: "Fertility", field: "fertility", filtering: false, cellStyle: {verticalAlign: "top", lineHeight: "36px"}},
+      {title: "Resources", field: "resources", render: renderResources, customFilterAndSearch: filterResources, cellStyle: {verticalAlign: "top"}},
+      {title: "Tier", field: "tier", cellStyle: {verticalAlign: "top", lineHeight: "36px"}},
+      {title: "Planetary Requirements", field: "planetaryRequirements", render: renderPlanetaryRequirements, cellStyle: {verticalAlign: "top"}},
     ];
     const data = planets.map(planet => (
       {
@@ -68,8 +74,9 @@ export function PlanetTable(): JSX.Element {
         title="Planets"
         options={{
           filtering: true,
+          padding: "dense",
           pageSize: 20,
-          pageSizeOptions: [20, 50, 200, 1000]
+          pageSizeOptions: [20, 50, 200, 1000],
         }}
         columns={columns}
         data={data}/>
