@@ -34,5 +34,20 @@
     "@material-ui/lab": "^4.0.0-alpha.49",
     "eslint-plugin-react": "^7.19.0",
     "whatwg-fetch": "^3.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "./node_modules/.bin/stylelint **/*.scss --fix",
+      "git add"
+    ]
   }
 }
