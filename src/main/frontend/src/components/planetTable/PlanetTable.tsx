@@ -38,7 +38,7 @@ export function PlanetTable(): JSX.Element {
           <div className={"pru-m-planetaryresources-list-item-desc"}>
             <span>
               Conc.: {Math.round(planetaryResource.concentration * 10000) / 100}%
-              ({Math.round(planetaryResource.concentration * (planetaryResource.form === "ATMOSPHERIC" ? 60 : 70) * 10) / 10}/ea)
+              ({Math.round(planetaryResource.concentration * (planetaryResource.form === "ATMOSPHERIC" ? 60 : 70) * 10) / 10}/day)
             </span>
             <span>Form: {planetaryResource.form}</span>
           </div>
