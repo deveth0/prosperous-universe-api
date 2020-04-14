@@ -33,9 +33,7 @@ export function PlanetTable(): JSX.Element {
       {title: "Fertility", field: "fertility"},
       {title: "Resources", field: "resources"},
       {title: "Tier", field: "tier"},
-      {title: "Gravity Level", field: "gravityLevel"},
-      {title: "Pressure Level", field: "pressureLevel"},
-      {title: "Temperature Level", field: "temperatureLevel"},
+      {title: "Planetary Requirements", field: "planetaryRequirements"},
     ];
     const data = planets.map(planet => (
       {
@@ -43,9 +41,7 @@ export function PlanetTable(): JSX.Element {
         fertility: planet.fertility,
         resources: Array.from(planet.resources.keys()).join(", "),
         tier: planet.tier,
-        gravityLevel: planet.gravityLevel,
-        pressureLevel: planet.pressureLevel,
-        temperatureLevel: planet.temperatureLevel
+        planetaryRequirements: planet.planetaryRequirements.join(", ")
       })
     );
     return (

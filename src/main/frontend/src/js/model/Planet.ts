@@ -17,8 +17,24 @@ export class Planet {
   temperatureLevel: string;
   tier: number;
   resources: Map<string, PlanetaryResource>;
+  planetaryRequirements: Array<string>;
 
-  constructor(id: string, name: string, system: string, fertility: number, gravity: number, plots: number, pressure: number, temperature: number, type: string, gravityLevel: string, pressureLevel: string, temperatureLevel: string, tier: number, resources: Map<string, PlanetaryResource>) {
+  constructor(
+    id: string,
+    name: string,
+    system: string,
+    fertility: number,
+    gravity: number,
+    plots: number,
+    pressure: number,
+    temperature: number,
+    type: string,
+    gravityLevel: string,
+    pressureLevel: string,
+    temperatureLevel: string,
+    tier: number,
+    resources: Map<string, PlanetaryResource>,
+    planetaryRequirements: Array<string>) {
     this.id = id;
     this.name = name;
     this.system = system;
@@ -33,6 +49,7 @@ export class Planet {
     this.temperatureLevel = temperatureLevel;
     this.tier = tier;
     this.resources = resources;
+    this.planetaryRequirements = planetaryRequirements;
   }
 
   static fromJson(json: Record<string, any>): Planet {

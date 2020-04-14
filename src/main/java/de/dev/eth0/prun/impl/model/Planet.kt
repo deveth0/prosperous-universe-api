@@ -40,9 +40,39 @@ data class Planet @JsonCreator constructor(
     @ApiModelProperty(value = "Tier of the Planet", example = "1")
     @JsonProperty("tier") val tier: Int,
     @ApiModelProperty(value = "All resources available on the Planet")
-    @JsonProperty("resources") val resources: Map<String, PlanetaryResource>
-) {
-    enum class Level { HIGH, LOW, NORMAL }
-    enum class Type { ROCKY, GASEOUS }
+    @JsonProperty("resources") val resources: Map<String, PlanetaryResource>) {
+
+  @ApiModelProperty(value = "Additional materials required to build on the Planet")
+  @JsonProperty("planetaryRequirements")
+  val planetaryRequirements: List<String> = Planet.getPlanetaryRequirements(type, pressureLevel, gravityLevel, temperatureLevel)
+
+  companion object {
+    fun getPlanetaryRequirements(type: Type, pressureLevel: Level, gravityLevel: Level, temperatureLevel: Level): List<String> {
+      val requirements = mutableListOf<String>()
+      requirements.add(if (type == Type.ROCKY) "MCG" else "AEF")
+      if (pressureLevel == Level.LOW) {
+        requirements.add("SEA")
+      }
+      if (pressureLevel == Level.HIGH) {
+        requirements.add("HSE")
+      }
+      if (gravityLevel == Level.LOW) {
+        requirements.add("MGC")
+      }
+      if (gravityLevel == Level.HIGH) {
+        requirements.add("BL")
+      }
+      if (temperatureLevel == Level.LOW) {
+        requirements.add("INF")
+      }
+      if (temperatureLevel == Level.HIGH) {
+        requirements.add("TSH")
+      }
+      return requirements;
+    }
+  }
+
+  enum class Level { HIGH, LOW, NORMAL }
+  enum class Type { ROCKY, GASEOUS }
 }
 
