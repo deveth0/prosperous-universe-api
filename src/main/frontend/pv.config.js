@@ -3,10 +3,10 @@
  */
 
 module.exports = {
-  "namespace": "react-tsx-sample",
-  "jsEntry": "src/js/index.ts",
-  "jsLegacyEntry": "src/js/legacyIndex.ts",
-  "useReact": true,
-  "copyStaticFiles": true,
-  "cleanDest": true
+  namespace: "prun-api",
+  jsEntry: "src/js/index.ts",
+  jsLegacyEntry: "src/js/legacyIndex.ts",
+  useReact: true,
+  copyStaticFiles: true,
+  cleanDest: true
 };

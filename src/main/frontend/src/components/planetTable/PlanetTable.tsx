@@ -9,6 +9,9 @@ import MaterialTable from "material-table";
 import {AppContext} from "../App";
 import {Planet, PlanetaryResource} from "../../js/model/Planet";
 import {ApiLoader} from "../../js/apiLoader";
+import {Material} from "../common/Material";
+import {MaterialList} from "../common/MaterialList";
+import "./PlanetTable.scss";
 
 /**
  * Display a list with all planets
@@ -27,14 +30,17 @@ export function PlanetTable(): JSX.Element {
     }
   }, []);
 
-  const renderResources = (rowData: any) => <ul>
+  const renderResources = (rowData: any) => <ul className={"pru-m-planetaryresources-list"}>
     {rowData.resources.map(
       (planetaryResource: PlanetaryResource) =>
         <li key={planetaryResource.resourceId}>
-          {planetaryResource.resourceId} ({Math.round(planetaryResource.concentration * 100) / 100}%, {planetaryResource.form})
+          <Material name={planetaryResource.resourceId}/>
+          <span>({Math.round(planetaryResource.concentration * 10000) / 100}%, {planetaryResource.form})</span>
         </li>
     )}
   </ul>;
+
+  const renderPlanetaryRequirements = (rowData: any) => <MaterialList materials={rowData.planetaryRequirements}/>;
 
   const filterResources = (term: string, rowData: any) =>
     rowData.resources.find((resource: PlanetaryResource) => resource.resourceId.toLowerCase() === term.toLowerCase()) !== undefined;
@@ -46,7 +52,7 @@ export function PlanetTable(): JSX.Element {
       {title: "Fertility", field: "fertility", filtering: false},
       {title: "Resources", field: "resources", render: renderResources, customFilterAndSearch: filterResources},
       {title: "Tier", field: "tier"},
-      {title: "Planetary Requirements", field: "planetaryRequirements"},
+      {title: "Planetary Requirements", field: "planetaryRequirements", render: renderPlanetaryRequirements},
     ];
     const data = planets.map(planet => (
       {
@@ -54,7 +60,7 @@ export function PlanetTable(): JSX.Element {
         fertility: planet.fertility,
         resources: Array.from(planet.resources.values()),
         tier: planet.tier,
-        planetaryRequirements: planet.planetaryRequirements.join(", ")
+        planetaryRequirements: planet.planetaryRequirements
       })
     );
     return (
