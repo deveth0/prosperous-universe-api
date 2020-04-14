@@ -7,7 +7,7 @@ import {Alert} from "@material-ui/lab";
 import MaterialTable from "material-table";
 
 import {AppContext} from "../App";
-import {Planet} from "../../js/model/Planet";
+import {Planet, PlanetaryResource} from "../../js/model/Planet";
 import {ApiLoader} from "../../js/apiLoader";
 
 /**
@@ -27,11 +27,24 @@ export function PlanetTable(): JSX.Element {
     }
   }, []);
 
+  const renderResources = (rowData: any) => <ul>
+    {rowData.resources.map(
+      (planetaryResource: PlanetaryResource) =>
+        <li key={planetaryResource.resourceId}>
+          {planetaryResource.resourceId} ({Math.round(planetaryResource.concentration * 100) / 100}%, {planetaryResource.form})
+        </li>
+    )}
+  </ul>;
+
+  const filterResources = (term: string, rowData: any) =>
+    rowData.resources.find((resource: PlanetaryResource) => resource.resourceId.toLowerCase() === term.toLowerCase()) !== undefined;
+
+
   if (planets.length > 0) {
     const columns = [
       {title: "Name", field: "name", filtering: false},
-      {title: "Fertility", field: "fertility"},
-      {title: "Resources", field: "resources"},
+      {title: "Fertility", field: "fertility", filtering: false},
+      {title: "Resources", field: "resources", render: renderResources, customFilterAndSearch: filterResources},
       {title: "Tier", field: "tier"},
       {title: "Planetary Requirements", field: "planetaryRequirements"},
     ];
@@ -39,7 +52,7 @@ export function PlanetTable(): JSX.Element {
       {
         name: `${planet.id} ${planet.name !== planet.id ? `(${planet.name})` : ""}`,
         fertility: planet.fertility,
-        resources: Array.from(planet.resources.keys()).join(", "),
+        resources: Array.from(planet.resources.values()),
         tier: planet.tier,
         planetaryRequirements: planet.planetaryRequirements.join(", ")
       })
@@ -50,7 +63,7 @@ export function PlanetTable(): JSX.Element {
         options={{
           filtering: true,
           pageSize: 20,
-          pageSizeOptions: [10, 50, 200, 1000]
+          pageSizeOptions: [20, 50, 200, 1000]
         }}
         columns={columns}
         data={data}/>
