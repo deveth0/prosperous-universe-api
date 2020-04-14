@@ -17,7 +17,8 @@ class AppConfigController {
   @GetMapping("/appConfig.json")
   fun getAppConfig(): ResponseEntity<Map<String, String>> {
     val appConfig = mapOf(
-        "planets" to PlanetController.PLANETS_PATH
+        "planets" to PlanetController.PLANETS_PATH,
+        "buildings" to "/api/v1/base/buildings"
     )
     return ResponseEntity.ok(appConfig)
   }

@@ -50,7 +50,6 @@ export function BasePlanner(): JSX.Element {
       ));
   };
 
-  // load all planets into context
   React.useEffect(() => {
     if (availableBuildings.length === 0) {
       const apiLoader = new ApiLoader(appConfig);
