@@ -54,7 +54,8 @@ export function PlanetTable(): JSX.Element {
   if (planets.length > 0) {
     const allPlanetaryResources = new Set<string>();
     planets.forEach(planet => planet.resources.forEach(res => allPlanetaryResources.add(res.resourceId)));
-    const planetaryResourceLookup = Object.assign({}, ...Array.from(allPlanetaryResources.values()).map(e => ({[e]: e})));
+    const planetaryResourceLookup = Object.assign({}, ...Array.from(allPlanetaryResources.values()).sort()
+      .map(e => ({[e]: e})));
 
     const columns = [
       {
