@@ -3,8 +3,8 @@
  */
 
 import * as React from "react";
-import {Alert} from "@material-ui/lab";
 import MaterialTable from "material-table";
+import {CircularProgress} from "@material-ui/core";
 
 import {AppContext} from "../App";
 import {Planet, PlanetaryResource} from "../../js/model/Planet";
@@ -48,17 +48,33 @@ export function PlanetTable(): JSX.Element {
 
   const renderPlanetaryRequirements = (rowData: any) => <MaterialList materials={rowData.planetaryRequirements}/>;
 
-  const filterResources = (term: string, rowData: any) =>
-    rowData.resources.find((resource: PlanetaryResource) => resource.resourceId.toLowerCase() === term.toLowerCase()) !== undefined;
-
+  const filterResources = (term: Array<string>, rowData: any) =>
+    term.every(t => rowData.resources.find((resource: PlanetaryResource) => resource.resourceId === t) !== undefined);
 
   if (planets.length > 0) {
+    const allPlanetaryResources = new Set<string>();
+    planets.forEach(planet => planet.resources.forEach(res => allPlanetaryResources.add(res.resourceId)));
+    const planetaryResourceLookup = Object.assign({}, ...Array.from(allPlanetaryResources.values()).map(e => ({[e]: e})));
+
     const columns = [
       {title: "Name", field: "name", filtering: false, cellStyle: {verticalAlign: "top", lineHeight: "36px"}},
       {title: "Fertility", field: "fertility", filtering: false, cellStyle: {verticalAlign: "top", lineHeight: "36px"}},
-      {title: "Resources", field: "resources", render: renderResources, customFilterAndSearch: filterResources, cellStyle: {verticalAlign: "top"}},
-      {title: "Tier", field: "tier", cellStyle: {verticalAlign: "top", lineHeight: "36px"}},
-      {title: "Planetary Requirements", field: "planetaryRequirements", render: renderPlanetaryRequirements, cellStyle: {verticalAlign: "top"}},
+      {
+        title: "Resources",
+        field: "resources",
+        render: renderResources,
+        customFilterAndSearch: filterResources,
+        cellStyle: {verticalAlign: "top"},
+        lookup: planetaryResourceLookup
+      },
+      {title: "Tier", field: "tier", cellStyle: {verticalAlign: "top", lineHeight: "36px"}, lookup: {1: "1", 2: "2", 3: "3", 4: "4"}},
+      {
+        title: "Planetary Requirements",
+        field: "planetaryRequirements",
+        filtering: false,
+        render: renderPlanetaryRequirements,
+        cellStyle: {verticalAlign: "top"}
+      },
     ];
     const data = planets.map(planet => (
       {
@@ -83,5 +99,5 @@ export function PlanetTable(): JSX.Element {
     );
   }
 
-  return <Alert severity="info">Loading</Alert>;
+  return <>Loading.. <CircularProgress/></>;
 }
