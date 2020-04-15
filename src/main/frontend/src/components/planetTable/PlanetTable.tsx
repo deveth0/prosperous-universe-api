@@ -57,21 +57,39 @@ export function PlanetTable(): JSX.Element {
     const planetaryResourceLookup = Object.assign({}, ...Array.from(allPlanetaryResources.values()).map(e => ({[e]: e})));
 
     const columns = [
-      {title: "Name", field: "name", filtering: false, cellStyle: {verticalAlign: "top", lineHeight: "36px"}},
-      {title: "Fertility", field: "fertility", filtering: false, cellStyle: {verticalAlign: "top", lineHeight: "36px"}},
+      {
+        title: "Name",
+        field: "name",
+        filtering: false,
+        cellStyle: {verticalAlign: "top", lineHeight: "36px"}
+      },
+      {
+        title: "Fertility",
+        field: "fertility",
+        filtering: false,
+        searchable: false,
+        cellStyle: {verticalAlign: "top", lineHeight: "36px"}
+      },
       {
         title: "Resources",
         field: "resources",
+        searchable: false,
         render: renderResources,
         customFilterAndSearch: filterResources,
         cellStyle: {verticalAlign: "top"},
         lookup: planetaryResourceLookup
       },
-      {title: "Tier", field: "tier", cellStyle: {verticalAlign: "top", lineHeight: "36px"}, lookup: {1: "1", 2: "2", 3: "3", 4: "4"}},
+      {
+        title: "Tier",
+        field: "tier",
+        cellStyle: {verticalAlign: "top", lineHeight: "36px"},
+        lookup: {1: "1", 2: "2", 3: "3", 4: "4"}
+      },
       {
         title: "Planetary Requirements",
         field: "planetaryRequirements",
         filtering: false,
+        searchable: false,
         render: renderPlanetaryRequirements,
         cellStyle: {verticalAlign: "top"}
       },
@@ -93,6 +111,11 @@ export function PlanetTable(): JSX.Element {
           padding: "dense",
           pageSize: 20,
           pageSizeOptions: [20, 50, 200, 1000],
+        }}
+        localization={{
+          toolbar: {
+            searchPlaceholder: "Search Planet"
+          }
         }}
         columns={columns}
         data={data}/>
