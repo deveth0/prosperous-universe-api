@@ -4,10 +4,13 @@
 import React from "react";
 import {FormControl, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 import {Alert} from "@material-ui/lab";
+import {useLocation, useHistory} from "react-router-dom";
+import qs from "qs";
 
 import {Planet} from "../../js/model/Planet";
 import {AppContext} from "../App";
 import {ApiLoader} from "../../js/apiLoader";
+
 
 interface PlanetSelectionProps {
   selectPlanet: (planet: Planet) => void;
@@ -16,23 +19,42 @@ interface PlanetSelectionProps {
 
 export function PlanetSelection(props: PlanetSelectionProps) {
   const [planets, setAvailablePlanets] = React.useState<Planet[]>([]);
+  const history = useHistory();
+  const location = useLocation();
+  const queryParams = qs.parse(location.search, { ignoreQueryPrefix: true });
+
   const {selectedPlanet} = props;
   const appConfig = React.useContext(AppContext);
+
+  const onPlanetsLoaded = (loadedPlanets: Planet[]) => {
+    setAvailablePlanets(loadedPlanets);
+    if(queryParams.planetId){
+      const newPlanet = loadedPlanets.find(planet => planet.id === queryParams.planetId);
+      if (newPlanet) {
+        props.selectPlanet(newPlanet);
+      }
+    }
+  };
 
   // load all planets into context
   React.useEffect(() => {
     if (planets.length === 0) {
       const apiLoader = new ApiLoader(appConfig);
-      apiLoader.getPlanets(setAvailablePlanets);
+      apiLoader.getPlanets(onPlanetsLoaded);
     }
   }, []);
 
+
   const handlePlanetSelect = (event: React.ChangeEvent<{ value: unknown }>) => {
     if (planets.length > 0) {
+
       // TODO: replace Planet[] with a map to simplify this
       const newPlanet = planets.find(planet => planet.id === event.target.value);
       if (newPlanet) {
         props.selectPlanet(newPlanet);
+        queryParams.planetId = event.target.value as string;
+        location.search = qs.stringify(queryParams);
+        history.push(location);
       }
     }
   };

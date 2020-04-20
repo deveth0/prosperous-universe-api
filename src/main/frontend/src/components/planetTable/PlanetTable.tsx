@@ -93,7 +93,7 @@ export function PlanetTable(): JSX.Element {
         searchable: false,
         render: renderPlanetaryRequirements,
         cellStyle: {verticalAlign: "top"}
-      },
+      }
     ];
     const data = planets.map(planet => (
       {
@@ -119,7 +119,8 @@ export function PlanetTable(): JSX.Element {
           }
         }}
         columns={columns}
-        data={data}/>
+        data={data}
+      />
     );
   }
 

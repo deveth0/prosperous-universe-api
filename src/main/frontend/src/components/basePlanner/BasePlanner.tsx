@@ -1,6 +1,8 @@
 import React from "react";
 import {Grid, Paper} from "@material-ui/core";
 import {makeStyles, createStyles, Theme} from "@material-ui/core/styles";
+import {useLocation, useHistory} from "react-router-dom";
+import qs from "qs";
 
 import {Planet} from "../../js/model/Planet";
 import {PlanetSelection} from "./PlanetSelection";
@@ -22,6 +24,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export function BasePlanner(): JSX.Element {
   const classes = useStyles();
+
+  const history = useHistory();
+  const location = useLocation();
+  const queryParams = qs.parse(location.search, {ignoreQueryPrefix: true});
+  // TODO: restore buildings
+
+
   // Available Buildings / Habitations
   const [availableBuildings, setAvailableBuildings] = React.useState<Building[]>([]);
   const [availableHabitations, setAvailableHabitations] = React.useState<Building[]>([]);
@@ -31,23 +40,50 @@ export function BasePlanner(): JSX.Element {
 
   const appConfig = React.useContext(AppContext);
 
+  const setSelectedBuildings = (buildings: Building[]) => {
+    setCurrentBuildings(buildings);
+    queryParams.prod = buildings.map(b => b.id);
+    location.search = qs.stringify(queryParams, {encodeValuesOnly: true});
+    history.push(location);
+  };
+  const setSelectedHabitations = (buildings: Building[]) => {
+    setCurrentHabitations(buildings);
+    queryParams.habit = buildings.map(b => b.id);
+    location.search = qs.stringify(queryParams, {encodeValuesOnly: true});
+    history.push(location);
+  };
+
   const setBuildings = (loadedBuildings: Building[]) => {
-    setAvailableBuildings(loadedBuildings
+    const productionBuildings = loadedBuildings
       .filter(building =>
         building.pioneers > 0
         || building.settlers > 0
         || building.technicians > 0
         || building.engineers > 0
         || building.scientists > 0
-      ));
-    setAvailableHabitations(loadedBuildings
+      );
+    setAvailableBuildings(productionBuildings);
+    if (queryParams.prod) {
+      const restoredBuildings = queryParams.prod
+        .map((b: string) => productionBuildings.find(id => b === id.id))
+        .filter((b: Building | undefined) => b !== undefined);
+      setCurrentBuildings(restoredBuildings);
+    }
+    const habitationBuildings = loadedBuildings
       .filter(building =>
         building.pioneers < 0
         || building.settlers < 0
         || building.technicians < 0
         || building.engineers < 0
         || building.scientists < 0
-      ));
+      );
+    setAvailableHabitations(habitationBuildings);
+    if (queryParams.habit) {
+      const restoredBuildings = queryParams.habit
+        .map((b: string) => habitationBuildings.find(id => b === id.id))
+        .filter((b: Building | undefined) => b !== undefined);
+      setCurrentHabitations(restoredBuildings);
+    }
   };
 
   React.useEffect(() => {
@@ -78,8 +114,8 @@ export function BasePlanner(): JSX.Element {
           availableHabitations={availableHabitations}
           currentBuildings={currentBuildings}
           currentHabitations={currentHabitations}
-          setCurrentBuildings={setCurrentBuildings}
-          setCurrentHabitations={setCurrentHabitations}/>
+          setCurrentBuildings={setSelectedBuildings}
+          setCurrentHabitations={setSelectedHabitations}/>
       </Grid>
     </Grid>
   </div>;

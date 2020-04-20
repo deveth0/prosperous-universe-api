@@ -24,7 +24,7 @@ export function BaseAreaAndPopulation(props: BaseAreaAndPopulationProps) {
     </Grid>
     <Grid container>
       <Grid item xs>
-        Area:
+        Area ({area} / 500):
         <LinearProgress
           variant="determinate"
           color={normalizedArea >= 100 ? "secondary" : "primary"}
