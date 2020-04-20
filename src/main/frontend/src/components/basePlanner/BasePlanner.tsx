@@ -27,7 +27,7 @@ export function BasePlanner(): JSX.Element {
 
   const history = useHistory();
   const location = useLocation();
-  const queryParams = qs.parse(location.search, {ignoreQueryPrefix: true});
+  const queryParams = qs.parse(location.search, {ignoreQueryPrefix: true, arrayLimit: 40});
   // TODO: restore buildings
 
 

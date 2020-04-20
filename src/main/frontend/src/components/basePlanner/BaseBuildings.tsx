@@ -56,6 +56,7 @@ function BuildingTable(props: BuildingTableProps) {
     {title: "Engineers", field: "engineers"},
     {title: "Scientists", field: "scientists"},
   ];
+
   const onDelete = (event: Event, rowData: Building | Building[]) => {
     if (rowData instanceof Array) {
       console.log("That was unexpected");
@@ -84,6 +85,15 @@ function BuildingTable(props: BuildingTableProps) {
     }
   };
 
+  const onDuplicate = (event: Event, rowData: Building | Building[]) => {
+    if (rowData instanceof Array) {
+      console.log("That was unexpected");
+    }
+    else {
+      const building = rowData as Building;
+      addBuilding(JSON.parse(JSON.stringify(building)));
+    }
+  };
 
   return <>
     <MaterialTable
@@ -96,6 +106,11 @@ function BuildingTable(props: BuildingTableProps) {
       // This is a hack for https://www.gitmemory.com/issue/mbrn/material-table/893/519018535
       data={props.current.map(building => JSON.parse(JSON.stringify(building)))}
       actions={[
+        {
+          icon: "addCircle",
+          tooltip: "Clone Building",
+          onClick: onDuplicate
+        },
         {
           icon: "delete",
           tooltip: "Delete Building",
