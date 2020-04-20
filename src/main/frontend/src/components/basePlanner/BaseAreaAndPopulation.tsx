@@ -9,17 +9,18 @@ import {Building} from "../../js/model/Building";
 
 interface BaseAreaAndPopulationProps {
   planet: Planet | undefined;
-  buildings: Building[];
+  baseBuildings: Building[];
+  prodBuildings: Building[];
   habitations: Building[];
 }
 
 export function BaseAreaAndPopulation(props: BaseAreaAndPopulationProps) {
-  const area = [...props.buildings, ...props.habitations].reduce((p, b) => p + b.area, 0);
+  const area = [...props.baseBuildings, ...props.prodBuildings, ...props.habitations].reduce((p, b) => p + b.area, 0);
   const normalizedArea = Math.min(area * 100 / 500, 100);
   return <Paper>
     <Grid container>
       <Grid item xs>
-        <PopulationTable buildings={props.buildings} habitations={props.habitations}/>
+        <PopulationTable buildings={props.prodBuildings} habitations={props.habitations}/>
       </Grid>
     </Grid>
     <Grid container>

@@ -1,29 +1,40 @@
 /*
  * Copyright (c) 2020.  dev-eth0.de All rights reserved.
  */
-import React from "react";
-import {Dialog, DialogTitle, Grid, MenuItem, Select} from "@material-ui/core";
+import React, {ChangeEvent} from "react";
+import {Dialog, DialogTitle, Grid, MenuItem, Paper, Select, Slider} from "@material-ui/core";
 import MaterialTable from "material-table";
 
 import {Building} from "../../js/model/Building";
 
 interface BaseBuildingsProps {
-  availableBuildings: Building[];
+  availableBaseBuildings: Building[];
+  availableProdBuildings: Building[];
   availableHabitations: Building[];
-  currentBuildings: Building[];
+  currentBaseBuildings: Building[];
+  currentProdBuildings: Building[];
   currentHabitations: Building[];
-  setCurrentBuildings: (currentBuildings: Building[]) => void;
+  setCurrentBaseBuildings: (currentBuildings: Building[]) => void;
+  setCurrentProdBuildings: (currentBuildings: Building[]) => void;
   setCurrentHabitations: (currentHabitations: Building[]) => void;
 }
 
 export function BaseBuildings(props: BaseBuildingsProps) {
   return <Grid container spacing={3}>
+    <Grid item xs={12}>
+      <BaseBuildingTable
+        title={"Base"}
+        available={props.availableBaseBuildings}
+        current={props.currentBaseBuildings}
+        setCurrent={props.setCurrentBaseBuildings}
+      />
+    </Grid>
     <Grid item xs>
       <BuildingTable
         title={"Production"}
-        available={props.availableBuildings}
-        current={props.currentBuildings}
-        setCurrent={props.setCurrentBuildings}/>
+        available={props.availableProdBuildings}
+        current={props.currentProdBuildings}
+        setCurrent={props.setCurrentProdBuildings}/>
     </Grid>
     <Grid item xs>
       <BuildingTable
@@ -40,6 +51,46 @@ interface BuildingTableProps {
   available: Building[];
   current: Building[];
   setCurrent: (buildings: Building[]) => void;
+}
+
+function BaseBuildingTable(props: BuildingTableProps) {
+
+  const onSliderUpdate = (building: Building, value: number | number[]) => {
+    if (!(value instanceof Array)) {
+      const newCurrent = new Array<Building>(value as number);
+      newCurrent.fill(building);
+      newCurrent.push(...props.current.filter(b => b.id !== building.id));
+      props.setCurrent(newCurrent);
+    }
+  };
+
+  const buildings = props.available.map(b => (
+    {
+      building: b,
+      count: props.current.filter(e => e.id === b.id).length
+    }));
+
+  return <Paper>
+    <Grid container spacing={3}>
+      <Grid item xs={4}>
+        CM
+      </Grid>
+      {buildings.map(b =>
+        <Grid item container xs={12} key={b.building.id}>
+          <Grid item xs={4}>
+            {b.building.name}
+          </Grid>
+          <Grid item xs={4}><Slider
+            defaultValue={0}
+            value={b.count}
+            marks
+            max={5}
+            valueLabelDisplay="on"
+            onChangeCommitted={(_, value) => onSliderUpdate(b.building, value)}
+          /></Grid>
+        </Grid>)}
+    </Grid>
+  </Paper>;
 }
 
 function BuildingTable(props: BuildingTableProps) {
