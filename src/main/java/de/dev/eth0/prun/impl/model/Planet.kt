@@ -39,6 +39,12 @@ data class Planet @JsonCreator constructor(
     @JsonProperty("temperatureLevel") val temperatureLevel: Level,
     @ApiModelProperty(value = "Tier of the Planet", example = "1")
     @JsonProperty("tier") val tier: Int,
+    @ApiModelProperty("Jumps to Promitor", example = "1")
+    @JsonProperty("jmpsPromitor") val jmpsPromitor: Int,
+    @ApiModelProperty("Jumps to Montem", example = "1")
+    @JsonProperty("jmpsMontem") val jmpsMontem: Int,
+    @ApiModelProperty("Jumps to Katoa", example = "1")
+    @JsonProperty("jmpsKatoa") val jmpsKatoa: Int,
     @ApiModelProperty(value = "All resources available on the Planet")
     @JsonProperty("resources") val resources: Map<String, PlanetaryResource>) {
 

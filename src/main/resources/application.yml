@@ -9,6 +9,7 @@ spring:
 app:
   files:
     planets: data/data_planets.csv
+    systems: data/data_systems.csv
     resources: data/data_resources.csv
     planetary_resources: data/dlinks_planetary_resources.csv
     recipes: data/data_recipes.csv

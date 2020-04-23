@@ -16,25 +16,14 @@ export class Planet {
   pressureLevel: string;
   temperatureLevel: string;
   tier: number;
+  jmpsPromitor: number;
+  jmpsMontem: number;
+  jmpsKatoa: number;
   resources: Map<string, PlanetaryResource>;
   planetaryRequirements: Array<string>;
 
-  constructor(
-    id: string,
-    name: string,
-    system: string,
-    fertility: number,
-    gravity: number,
-    plots: number,
-    pressure: number,
-    temperature: number,
-    type: string,
-    gravityLevel: string,
-    pressureLevel: string,
-    temperatureLevel: string,
-    tier: number,
-    resources: Map<string, PlanetaryResource>,
-    planetaryRequirements: Array<string>) {
+
+  constructor(id: string, name: string, system: string, fertility: number, gravity: number, plots: number, pressure: number, temperature: number, type: string, gravityLevel: string, pressureLevel: string, temperatureLevel: string, tier: number, jmpsPromitor: number, jmpsMontem: number, jmpsKatoa: number, resources: Map<string, PlanetaryResource>, planetaryRequirements: Array<string>) {
     this.id = id;
     this.name = name;
     this.system = system;
@@ -48,6 +37,9 @@ export class Planet {
     this.pressureLevel = pressureLevel;
     this.temperatureLevel = temperatureLevel;
     this.tier = tier;
+    this.jmpsPromitor = jmpsPromitor;
+    this.jmpsMontem = jmpsMontem;
+    this.jmpsKatoa = jmpsKatoa;
     this.resources = resources;
     this.planetaryRequirements = planetaryRequirements;
   }

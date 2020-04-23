@@ -22,7 +22,7 @@ open class PlanetsServiceImpl @Autowired constructor(filesProperties: FilesPrope
   private val logger = LoggerFactory.getLogger(PlanetsServiceImpl::class.java.simpleName)
 
   init {
-    val planetsParser = CSVPlanetsParser(filesProperties.planets, filesProperties.planetaryResources)
+    val planetsParser = CSVPlanetsParser(filesProperties.planets, filesProperties.planetaryResources, filesProperties.systems)
     planets = planetsParser.planetsById
     planetaryResources = planetsParser.planetsByResource
   }

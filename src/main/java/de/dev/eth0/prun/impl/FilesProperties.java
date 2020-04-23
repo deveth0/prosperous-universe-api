@@ -18,6 +18,8 @@ public class FilesProperties {
   @NotBlank
   private String planets;
   @NotBlank
+  private String systems;
+  @NotBlank
   private String resources;
   @NotBlank
   private String planetaryResources;
@@ -38,6 +40,14 @@ public class FilesProperties {
 
   public void setPlanets(String planets) {
     this.planets = planets;
+  }
+
+  public String getSystems() {
+    return systems;
+  }
+
+  public void setSystems(String systems) {
+    this.systems = systems;
   }
 
   public String getResources() {
