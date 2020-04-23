@@ -122,9 +122,9 @@ export function PlanetTable(): JSX.Element {
         fertility: planet.fertility !== -1 ? `${Math.round(planet.fertility * 10000) / 100}%` : "",
         resources: Array.from(planet.resources.values()),
         tier: planet.tier,
-        jmpsPromitor: planet.jmpsPromitor,
-        jmpsMontem: planet.jmpsMontem,
-        jmpsKatoa: planet.jmpsKatoa,
+        jmpsPromitor: planet.jmpsPromitor !== -1 ? planet.jmpsPromitor : "",
+        jmpsMontem: planet.jmpsMontem !== -1 ? planet.jmpsMontem : "",
+        jmpsKatoa: planet.jmpsKatoa !== -1 ? planet.jmpsKatoa : "",
         planetaryRequirements: planet.planetaryRequirements
       })
     );
