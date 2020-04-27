@@ -118,7 +118,7 @@ export function PlanetTable(): JSX.Element {
     ];
     const data = planets.map(planet => (
       {
-        name: `${planet.id} ${planet.name !== planet.id ? `(${planet.name})` : ""}`,
+        name: `${planet.id}${planet.name !== planet.id ? ` (${planet.name})` : ""}`,
         fertility: planet.fertility !== -1 ? `${Math.round(planet.fertility * 10000) / 100}%` : "",
         resources: Array.from(planet.resources.values()),
         tier: planet.tier,
@@ -147,7 +147,7 @@ export function PlanetTable(): JSX.Element {
                 tempInput.style.position = "absolute";
                 tempInput.style.left = "-1000px";
                 tempInput.style.top = "-1000px";
-                tempInput.value = `PLI ${rowData.name}`;
+                tempInput.value = `PLI ${rowData.name.split(" ")[0]}`;
                 document.body.appendChild(tempInput);
                 tempInput.select();
                 document.execCommand("copy");
