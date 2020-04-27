@@ -89,23 +89,23 @@ export function PlanetTable(): JSX.Element {
       {
         title: "Jumps Promitor",
         field: "jmpsPromitor",
-        cellStyle: {verticalAlign: "top"},
         filtering: false,
         searchable: false,
+        cellStyle: {verticalAlign: "top", lineHeight: "36px"}
       },
       {
         title: "Jumps Montem",
         field: "jmpsMontem",
-        cellStyle: {verticalAlign: "top"},
         filtering: false,
         searchable: false,
+        cellStyle: {verticalAlign: "top", lineHeight: "36px"}
       },
       {
         title: "Jumps Katoa",
         field: "jmpsKatoa",
-        cellStyle: {verticalAlign: "top"},
         filtering: false,
         searchable: false,
+        cellStyle: {verticalAlign: "top", lineHeight: "36px"}
       },
       {
         title: "Planetary Requirements",
@@ -137,6 +137,25 @@ export function PlanetTable(): JSX.Element {
           pageSize: 20,
           pageSizeOptions: [20, 50, 200, 1000],
         }}
+        actions={[
+          {
+            icon: "file_copy",
+            tooltip: "Copy PLI command",
+            onClick: (event, rowData) => {
+              if (!(rowData instanceof Array)) {
+                const tempInput = document.createElement("input");
+                tempInput.style.position = "absolute";
+                tempInput.style.left = "-1000px";
+                tempInput.style.top = "-1000px";
+                tempInput.value = `PLI ${rowData.name}`;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+              }
+            }
+          }
+        ]}
         localization={{
           toolbar: {
             searchPlaceholder: "Search Planet"
