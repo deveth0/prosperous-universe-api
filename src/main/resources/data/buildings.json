@@ -165,7 +165,7 @@
   },
   "EEP": {
     "id": "EEP",
-    "name": "Electronics Plant",
+    "name": "Einsteinium Enrichment",
     "area": 200,
     "expertise": "CHEMISTRY",
     "engineers": 60,
